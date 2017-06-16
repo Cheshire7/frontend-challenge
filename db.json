@@ -1,0 +1,43 @@
+/*{
+ "items": [
+   { "_id": 0, "name": "text" }
+ ]
+} */
+
+{
+  "personal": [
+    {
+      "id": 1,
+      "photo": "img/photos/photo1",
+      "name": "Victor",
+      "lastName": "Ivanov",
+      "pol": "man",
+      "birthday": "15.03.1992",
+      "position": "manager",
+      "skill": "-",
+      "characteristic": "Long characteristic"
+    },
+    {
+      "id": 2,
+      "photo": "img/photos/photo2",
+      "name": "Marija",
+      "lastName": "Petrova",
+      "pol": "woman",
+      "birthday": "25.05.1994",
+      "position": "programmint",
+      "skill": "-",
+      "characteristic": "short characteristic"
+    },
+    {
+      "id": 3,
+      "name": "Dmitrij",
+      "photo": "img/photos/photo3",
+      "lastName": "Sidorov",
+      "pol": "man",
+      "birthday": "17.08.1973",
+      "position": "programmint",
+      "skill": "-",
+      "characteristic": "medium characteristic"
+    }
+  ],
+}
