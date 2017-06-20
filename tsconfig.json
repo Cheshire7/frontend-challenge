@@ -13,13 +13,10 @@
         "removeComments": true,
         "suppressImplicitAnyIndexErrors": true,
         "lib": [ "es6", "dom" ],
-        "typeRoots": [
-      "/node_modules/@types"
-    ],
-    "types": [ "node" ],
     },
     "include": [
-        "public/**/*"
+        "public/app.ts",
+        "node_modules/@types/**/*.ts"
     ]
 }
 
