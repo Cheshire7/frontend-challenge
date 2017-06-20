@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+
+<html ng-app="personalApp">
   <head>
     <base href="/">
         <title>Angular2Webpack Starter</title>
@@ -8,7 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
   <link href="style.css" rel="stylesheet"></head>
-  <body class="mdl-base" ng-app>
-    <my-app>{{ 1 + 3 }}</my-app>
-  <script type="text/javascript" src="bundle.js"></script></body>
-</html>
+  <body ng-controller="PersonalListCtrl">
+
+  <!-- <h2>Пример маршрутизации в AngularJS</h2>
+  <p>Перейти к <a href="#second"> профилю </a></p> 
+  <div ng-view></div> -->
+
+  <my-app>Загрузка...</my-app>
+
+ <script type="text/javascript" src="bundle.js"></script></body>
+ </html>

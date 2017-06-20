@@ -7,23 +7,17 @@ module.exports = {
 	entry: {
 		bundle: './public/app.ts'
 	},
-
 	output: {
 	filename: '[name].js',
 	path: path.resolve(__dirname, 'dist'),
 	library: '[name]'
 	},
-
+	resolve: {
+    extensions: ['.ts', '.tsx', '.js'] 
+  },
 	module: {
 	  rules: [
-	    {
-		      test: /\.js$/,
-		      exclude: /node_modules/,
-		      use: [{
-		        loader: 'babel-loader',
-		        options: { presets: ['es2015'] }
-		      }]
-	    },
+	    
 	    {
 	        test: /\.scss$/,
 	        exclude: /node_modules/,
@@ -39,6 +33,10 @@ module.exports = {
 	            },
 	          ],
 	        }),
+       },
+       { 
+       	 	test: /\.ts?$/,
+        	loader: 'ts-loader' 
        }
 	  ],
 	},
@@ -47,7 +45,7 @@ module.exports = {
 	new HtmlWebpackPlugin({
 	  template: path.resolve(__dirname, 'public/index.html'),
 	}),
-	 new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
+	new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
 	],
 
 	devServer: {

@@ -34,6 +34,9 @@ var bundle =
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -66,19 +69,9 @@ var bundle =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(1);
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module parse failed: /Users/practice/practice/web-app/public/app.ts Unexpected character '@' (7:0)\nYou may need an appropriate loader to handle this file type.\n| import { Component } from '@angular/core';\n|      \n| @Component({\n|     selector: 'my-app',\n|     template: `<label>Введите имя:</label>");
 
 /***/ })
 /******/ ]);
