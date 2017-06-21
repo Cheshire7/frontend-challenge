@@ -13,10 +13,6 @@
         "removeComments": true,
         "experimentalDecorators": true,
         "lib": [ "es6", "dom" ]
-    },
-    "include": [
-        "public/app.ts",
-        "node_modules/@types/**/*.ts"
-    ]
+    }
 }
 

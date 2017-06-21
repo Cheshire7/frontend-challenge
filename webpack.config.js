@@ -3,18 +3,22 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
 	entry: {
 		'polyfills': './public/polyfills.ts',
     	'vendor': './public/vendor.ts',
-    	'app': './public/app/main.ts'
-	},
+    	'app': './public/app/main.ts',
+    	'serv': 'webpack-dev-server/client?http://localhost:3333',
+
+  	},
 	output: {
 	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
 	filename: '[name].[hash].js'
 	},
+	
 	resolve: {
     extensions: ['.ts', '.tsx', '.js'] 
   },
@@ -81,14 +85,16 @@ module.exports = {
 	      htmlLoader: {
 	        minimize: false
 	      }
-	    })
+	    }),
+
+	    new OpenBrowserPlugin({ url: 'http://localhost:3333' }),
 	],
 
 	devServer: {
 	host: '0.0.0.0',
-	port: 3333,
+	port: 8888,
+	contentBase: path.resolve(__dirname, 'dist'),
+	publicPath: '/'
 	},
 
 };
-
-

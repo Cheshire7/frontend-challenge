@@ -1,13 +1,21 @@
 import {Component} from '@angular/core';
+import { MaterialModule } from '@angular/material';
+// import '/public/styles/styles.scss';
  
 @Component({
     selector: 'my-app',
     template: `
+
+    <div> <a md-button color="primary">Flat button</a> 
+    <a md-raised-button color="accent">Raised button</a> 
+    <a md-fab color="primary"><md-icon>check</md-icon></a>
+    <a md-mini-fab color="primary">
+    <md-icon>check</md-icon></a></div>
     			<ul *ngIf='names.length'>
     				<li *ngFor='let name of names'>{{name}}</li>
     			</ul>
     			
-    			<form>
+    		<form>
 				<h3>Добавить сотрудника</h3>
 
 				<div class='field'>
