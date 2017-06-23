@@ -9,4 +9,12 @@
 
 }
 
-@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink';
+
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}

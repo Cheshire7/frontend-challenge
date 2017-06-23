@@ -6,17 +6,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
+	devtool: 'eval-source-map',
 	entry: {
 		'polyfills': './public/polyfills.ts',
     	'vendor': './public/vendor.ts',
-    	'app': './public/app/main.ts',
-    	'serv': 'webpack-dev-server/client?http://localhost:3333',
-
+    	'app': './public/main.ts'
   	},
 	output: {
 	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
-	filename: '[name].[hash].js'
+	filename: '[name].[hash].js',
+		sourceMapFilename: "[name].map"
+
 	},
 	
 	resolve: {
@@ -87,14 +88,20 @@ module.exports = {
 	      }
 	    }),
 
-	    new OpenBrowserPlugin({ url: 'http://localhost:3333' }),
+	    new OpenBrowserPlugin({ url: 'http://localhost:8090' }),
 	],
 
+
 	devServer: {
-	host: '0.0.0.0',
-	port: 8888,
-	contentBase: path.resolve(__dirname, 'dist'),
-	publicPath: '/'
-	},
+    contentBase: "./public",
+    proxy: {
+      "/api": {
+        target: "http://localhost:3333/",
+        pathRewrite: {
+          "^/api": ""
+        }
+      }
+    }
+  }
 
 };

@@ -1,0 +1,118 @@
+<md-toolbar color="primary"><h1>User list</h1></md-toolbar>
+
+<!--user lost-->
+<md-card class="example-card">
+    <md-card-header>
+        <div md-card-avatar class="example-header-image"></div>
+        <md-card-title>Shiba Inu</md-card-title>
+        <md-card-subtitle>Dog Breed</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="imgs/avatar.png">
+    <md-card-content>
+        <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+        </p>
+    </md-card-content>
+    <md-card-actions>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+    </md-card-actions>
+</md-card>
+
+<!--&lt;!&ndash;add user dialog&ndash;&gt;-->
+
+<!--<button md-button (click)="openDialog()">Launch dialog</button>-->
+<!--You chose: {{selectedOption}}-->
+
+<!--&lt;!&ndash;autocomplite in dialog &ndash;&gt;-->
+
+<!--<md-input-container>-->
+    <!--<input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">-->
+<!--</md-input-container>-->
+
+<!--<md-autocomplete #auto="mdAutocomplete">-->
+    <!--<md-option *ngFor="let state of filteredStates | async" [value]="state">-->
+        <!--{{ state }}-->
+    <!--</md-option>-->
+<!--</md-autocomplete>-->
+
+<!--&lt;!&ndash;datepicker in dialog&ndash;&gt;-->
+
+<!--<md-input-container>-->
+    <!--<input mdInput [mdDatepicker]="picker" placeholder="Choose a date">-->
+    <!--<button mdSuffix [mdDatepickerToggle]="picker"></button>-->
+<!--</md-input-container>-->
+<!--<md-datepicker #picker></md-datepicker>-->
+
+<!--&lt;!&ndash;simple input in dialog&ndash;&gt;-->
+
+<!--<form class="example-form">-->
+    <!--<md-input-container class="example-full-width">-->
+        <!--<input mdInput placeholder="Company (disabled)" disabled value="Google">-->
+    <!--</md-input-container>-->
+
+    <!--<table class="example-full-width" cellspacing="0"><tr>-->
+        <!--<td><md-input-container class="example-full-width">-->
+            <!--<input mdInput placeholder="First name">-->
+        <!--</md-input-container></td>-->
+        <!--<td><md-input-container class="example-full-width">-->
+            <!--<input mdInput placeholder="Long Last Name That Will Be Truncated">-->
+        <!--</md-input-container></td>-->
+    <!--</tr></table>-->
+
+    <!--<p>-->
+        <!--<md-input-container class="example-full-width">-->
+            <!--<textarea mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>-->
+        <!--</md-input-container>-->
+        <!--<md-input-container class="example-full-width">-->
+            <!--<textarea mdInput placeholder="Address 2"></textarea>-->
+        <!--</md-input-container>-->
+    <!--</p>-->
+
+    <!--<table class="example-full-width" cellspacing="0"><tr>-->
+        <!--<td><md-input-container class="example-full-width">-->
+            <!--<input mdInput placeholder="City">-->
+        <!--</md-input-container></td>-->
+        <!--<td><md-input-container class="example-full-width">-->
+            <!--<input mdInput placeholder="State">-->
+        <!--</md-input-container></td>-->
+        <!--<td><md-input-container class="example-full-width">-->
+            <!--<input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">-->
+            <!--<md-hint align="end">{{postalCode.value.length}} / 5</md-hint>-->
+        <!--</md-input-container></td>-->
+    <!--</tr></table>-->
+<!--</form>-->
+
+<!--&lt;!&ndash;buttons&ndash;&gt;-->
+
+<!--<div class="example-container">-->
+    <!--<h3>Normal Buttons</h3>-->
+    <!--<div class="button-row">-->
+        <!--<button md-button>Flat button</button>-->
+        <!--<button md-raised-button>Raised button</button>-->
+        <!--<button md-fab><md-icon>check</md-icon></button>-->
+        <!--<button md-mini-fab><md-icon>check</md-icon></button>-->
+    <!--</div>-->
+
+
+
+
+
+
+                
+            <form>
+                <h3>Добавить сотрудника</h3>
+
+                <div class='field'>
+                    <label for='title'>Имя</label>
+                    <input type='text' name='name' #newtitle>
+                </div>
+
+                <div class='field'>
+                    <label for='position'>Должность</label>
+                    <input type='text' name='position' #newposition>
+                </div>
+                <button (click)='UserAdd(newtitle, newposition)'>Отправить</button>
+            </form>
