@@ -1,19 +1,21 @@
 <md-toolbar color="primary"><h1>User list</h1></md-toolbar>
 
 <!--user lost-->
-<md-card class="example-card">
+
+<md-card *ngFor="let user of user_list" class="example-card">
+    <div><img class="avatarImage" src="imgs/avatar.png"></div>
     <md-card-header>
-        <div md-card-avatar class="example-header-image"></div>
-        <md-card-title>Shiba Inu</md-card-title>
-        <md-card-subtitle>Dog Breed</md-card-subtitle>
+
+
+        <md-card-title>{{user.name}}<br>{{user.lastName}}</md-card-title>
+        <md-card-subtitle>{{user.pol}}</md-card-subtitle>
+        <md-card-subtitle>{{user.birthday}}</md-card-subtitle>
+        <md-card-subtitle>{{user.position}}</md-card-subtitle>
+        <md-card-subtitle>{{user.skill}}</md-card-subtitle>
     </md-card-header>
-    <img md-card-image src="imgs/avatar.png">
+
     <md-card-content>
-        <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-        </p>
+        <p>{{user.characteristic}}</p>
     </md-card-content>
     <md-card-actions>
         <button md-button>LIKE</button>
@@ -95,11 +97,6 @@
         <!--<button md-fab><md-icon>check</md-icon></button>-->
         <!--<button md-mini-fab><md-icon>check</md-icon></button>-->
     <!--</div>-->
-
-
-
-
-
 
                 
             <form>

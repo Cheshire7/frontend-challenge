@@ -2,7 +2,7 @@
   "personal": [
     {
       "id": 1,
-      "photo": "img/photos/photo1",
+      "photo": "avatar-1.png",
       "name": "Victor",
       "lastName": "Ivanov",
       "pol": "man",
@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "photo": "img/photos/photo2",
+      "photo": "avatar-2.png",
       "name": "Marija",
       "lastName": "Petrova",
       "pol": "woman",
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "Dmitrij",
-      "photo": "img/photos/photo3",
+      "photo": "avatar-3.png",
       "lastName": "Sidorov",
       "pol": "man",
       "birthday": "17.08.1973",

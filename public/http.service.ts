@@ -7,6 +7,6 @@ export class HttpService{
     constructor(@Inject(Http) private http: Http){ }
 
     getData(){
-        return this.http.get('/api/personal')
+        return this.http.get('/api/personal').map(res => res.json());
     }
 }

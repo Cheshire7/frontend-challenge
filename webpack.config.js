@@ -6,12 +6,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-	devtool: 'eval-source-map',
+
 	entry: {
 		'polyfills': './public/polyfills.ts',
     	'vendor': './public/vendor.ts',
     	'app': './public/main.ts'
   	},
+	devtool: 'eval-source-map',
 	output: {
 	path: path.resolve(__dirname, 'dist'),
 	publicPath: '/',
@@ -19,9 +20,9 @@ module.exports = {
 		sourceMapFilename: "[name].map"
 
 	},
-	
+
 	resolve: {
-    extensions: ['.ts', '.tsx', '.js'] 
+    extensions: ['.ts', '.tsx', '.js']
   },
 	module: {
 	  rules: [
@@ -37,7 +38,7 @@ module.exports = {
         loader: 'html-loader'
       },
       {
-      test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+      test: /\.(png|jpeg|gif|svg|woff|woff2|ttf|eot|ico)$/,
       loader: 'file-loader?name=assets/[name].[hash].[ext]'
       },
       {
