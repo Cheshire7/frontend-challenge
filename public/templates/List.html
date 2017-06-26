@@ -1,115 +1,53 @@
-<md-toolbar color="primary"><h1>User list</h1></md-toolbar>
+
+<md-toolbar><h1>List</h1></md-toolbar>
 
 <!--user lost-->
+<div class="user_container">
+    <div class="AddContainer">
+        <a><img class="addUsr" src="imgs/add.png"/></a>
+    </div>
+    <div class="elements">
+        <md-card *ngFor="let user of user_list" class="example-card" [class.selected]="user === selectedUser"
+                 (click)="onSelect(user)">
 
-<md-card *ngFor="let user of user_list" class="example-card">
-    <div><img class="avatarImage" src="imgs/avatar.png"></div>
-    <md-card-header>
+            <div class="usrImgCont">
+                <div class="avatar">
+                    <img class="avatarImage" src="imgs/avatar-2.png">
+                </div>
+            </div>
 
 
-        <md-card-title>{{user.name}}<br>{{user.lastName}}</md-card-title>
-        <md-card-subtitle>{{user.pol}}</md-card-subtitle>
-        <md-card-subtitle>{{user.birthday}}</md-card-subtitle>
-        <md-card-subtitle>{{user.position}}</md-card-subtitle>
-        <md-card-subtitle>{{user.skill}}</md-card-subtitle>
-    </md-card-header>
+            <md-card-header>
+                <md-card-title>{{user.name}} {{user.lastName}}</md-card-title>
+                <md-card-subtitle>{{user.characteristic}}</md-card-subtitle>
+                <md-card-subtitle>{{user.skill}}</md-card-subtitle>
+            </md-card-header>
+        </md-card>
+    </div>
+</div>
 
-    <md-card-content>
-        <p>{{user.characteristic}}</p>
-    </md-card-content>
-    <md-card-actions>
-        <button md-button>LIKE</button>
-        <button md-button>SHARE</button>
-    </md-card-actions>
-</md-card>
+<div *ngIf="selectedUser">
+    <h2>{{selectedUser.name}} profile</h2>
+    <div><label>Name: </label><input [(ngModel)]="selectedUser.name" placeholder="name"/></div>
+    <div><label>Last Name: </label><input [(ngModel)]="selectedUser.lastName" placeholder="lastName"/></div>
+    <div><label>Birthday: </label><input [(ngModel)]="selectedUser.birthday" placeholder="birthday"/></div>
 
-<!--&lt;!&ndash;add user dialog&ndash;&gt;-->
+    <div><label>Position: </label><input [(ngModel)]="selectedUser.position" placeholder="position"/></div>
+    <div><label>Skill: </label><input [(ngModel)]="selectedUser.skill" placeholder="skill"/></div>
+    <div><label>Characteristic: </label><input [(ngModel)]="selectedUser.characteristic" placeholder="characteristic"/></div>
+</div>
 
-<!--<button md-button (click)="openDialog()">Launch dialog</button>-->
-<!--You chose: {{selectedOption}}-->
+<!--<form>-->
+    <!--<h3>Добавить сотрудника</h3>-->
 
-<!--&lt;!&ndash;autocomplite in dialog &ndash;&gt;-->
-
-<!--<md-input-container>-->
-    <!--<input mdInput placeholder="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">-->
-<!--</md-input-container>-->
-
-<!--<md-autocomplete #auto="mdAutocomplete">-->
-    <!--<md-option *ngFor="let state of filteredStates | async" [value]="state">-->
-        <!--{{ state }}-->
-    <!--</md-option>-->
-<!--</md-autocomplete>-->
-
-<!--&lt;!&ndash;datepicker in dialog&ndash;&gt;-->
-
-<!--<md-input-container>-->
-    <!--<input mdInput [mdDatepicker]="picker" placeholder="Choose a date">-->
-    <!--<button mdSuffix [mdDatepickerToggle]="picker"></button>-->
-<!--</md-input-container>-->
-<!--<md-datepicker #picker></md-datepicker>-->
-
-<!--&lt;!&ndash;simple input in dialog&ndash;&gt;-->
-
-<!--<form class="example-form">-->
-    <!--<md-input-container class="example-full-width">-->
-        <!--<input mdInput placeholder="Company (disabled)" disabled value="Google">-->
-    <!--</md-input-container>-->
-
-    <!--<table class="example-full-width" cellspacing="0"><tr>-->
-        <!--<td><md-input-container class="example-full-width">-->
-            <!--<input mdInput placeholder="First name">-->
-        <!--</md-input-container></td>-->
-        <!--<td><md-input-container class="example-full-width">-->
-            <!--<input mdInput placeholder="Long Last Name That Will Be Truncated">-->
-        <!--</md-input-container></td>-->
-    <!--</tr></table>-->
-
-    <!--<p>-->
-        <!--<md-input-container class="example-full-width">-->
-            <!--<textarea mdInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>-->
-        <!--</md-input-container>-->
-        <!--<md-input-container class="example-full-width">-->
-            <!--<textarea mdInput placeholder="Address 2"></textarea>-->
-        <!--</md-input-container>-->
-    <!--</p>-->
-
-    <!--<table class="example-full-width" cellspacing="0"><tr>-->
-        <!--<td><md-input-container class="example-full-width">-->
-            <!--<input mdInput placeholder="City">-->
-        <!--</md-input-container></td>-->
-        <!--<td><md-input-container class="example-full-width">-->
-            <!--<input mdInput placeholder="State">-->
-        <!--</md-input-container></td>-->
-        <!--<td><md-input-container class="example-full-width">-->
-            <!--<input mdInput #postalCode maxlength="5" placeholder="Postal Code" value="94043">-->
-            <!--<md-hint align="end">{{postalCode.value.length}} / 5</md-hint>-->
-        <!--</md-input-container></td>-->
-    <!--</tr></table>-->
-<!--</form>-->
-
-<!--&lt;!&ndash;buttons&ndash;&gt;-->
-
-<!--<div class="example-container">-->
-    <!--<h3>Normal Buttons</h3>-->
-    <!--<div class="button-row">-->
-        <!--<button md-button>Flat button</button>-->
-        <!--<button md-raised-button>Raised button</button>-->
-        <!--<button md-fab><md-icon>check</md-icon></button>-->
-        <!--<button md-mini-fab><md-icon>check</md-icon></button>-->
+    <!--<div class='field'>-->
+        <!--<label for='title'>Имя</label>-->
+        <!--<input type='text' name='name' #newtitle>-->
     <!--</div>-->
 
-                
-            <form>
-                <h3>Добавить сотрудника</h3>
-
-                <div class='field'>
-                    <label for='title'>Имя</label>
-                    <input type='text' name='name' #newtitle>
-                </div>
-
-                <div class='field'>
-                    <label for='position'>Должность</label>
-                    <input type='text' name='position' #newposition>
-                </div>
-                <button (click)='UserAdd(newtitle, newposition)'>Отправить</button>
-            </form>
+    <!--<div class='field'>-->
+        <!--<label for='position'>Должность</label>-->
+        <!--<input type='text' name='position' #newposition>-->
+    <!--</div>-->
+    <!--<button (click)='UserAdd(newtitle, newposition)'>Отправить</button>-->
+<!--</form>-->

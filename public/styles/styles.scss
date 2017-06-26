@@ -11,21 +11,75 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink';
 
-.example-card {
-  width: 400px;
+body{
+  background: #f1f1f1;
 }
+
+.user_container .elements .example-card {
+  width: 400px;
+  cursor: pointer;
+  border-bottom: 2px solid #bdbbb4;
+  box-shadow: none;
+}
+
+md-card:first-child {
+  border-top: 2px solid #bdbbb4;
+}
+
 
 .avatarImage {
   border-radius: 155px;
   box-shadow: 0 0 13px #333;
-  width: 35%;
-  float: left;
+  width: 90%;
 }
 
-.mat-card-header-text{
-  width: 100%;
+.avatar{
+  text-align: center;
 }
 
 .mat-card-header-text{
   text-align: center;
 }
+
+.user_container{
+  height: 93%;
+  overflow: overlay;
+  float: left;
+  text-align: center;
+}
+
+.usrImgCont{
+  width: 25%;
+  float: left;
+  display: grid;
+}
+
+.usrleftBar h3{
+  text-align: center;
+}
+
+.addUsr{
+  width: 50px;
+  padding: 10px 10px;
+}
+
+.example-card.mat-card, .user_container{
+  background: #fafafa;
+  box-shadow: 5px 0 10px -5px #888888;
+}
+
+.user_container .mat-card-header .mat-card-title{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.AddContainer a{
+  display: inline-block;
+}
+
+md-toolbar{
+  box-shadow: 0 5px 10px -5px #888888;
+  position: relative;
+  background: #f4f4f4;
+}
+
