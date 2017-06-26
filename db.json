@@ -29,9 +29,9 @@
       "lastName": "Sidorov",
       "pol": "man",
       "birthday": "17.08.1973",
-      "position": "programmist",
+      "position": "",
       "skill": ["react", "node.js"],
-      "characteristic": "Aenean consectetur blandit ante ut placerat. Nam malesuada dapibus lectus, non tincidunt risus lobortis non. Integer nec finibus ante, in varius quam. Donec nec dapibus ante, nec feugiat erat. Quisque scelerisque, ipsum vel facilisis vulputate, purus ligula maximus arcu, ut accumsan leo purus eu eros. Nulla convallis felis augue, et venenatis magna varius a. Integer cursus, urna non molestie auctor, erat leo tristique ex, ac consequat neque velit in libero."
+      "characteristic": ""
     }
   ]
 }

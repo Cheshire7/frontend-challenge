@@ -42,4 +42,4 @@ export class AppComponent implements OnInit {
         this.selectedUser = user;
     }
 
-} 
+}

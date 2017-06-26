@@ -1150,7 +1150,6 @@ body {
   background-image: url(/imgs/background.png); }
 
 .user_container .elements .example-card {
-  width: 400px;
   cursor: pointer;
   border-bottom: 2px solid #bdbbb4;
   box-shadow: none; }
@@ -1171,6 +1170,7 @@ md-card:first-child {
 
 .user_container {
   height: 93%;
+  width: 25%;
   overflow: overlay;
   float: left;
   text-align: center; }
@@ -1185,7 +1185,8 @@ md-card:first-child {
 
 .addUsr {
   width: 50px;
-  padding: 10px 10px; }
+  padding: 10px 10px;
+  cursor: pointer; }
 
 .example-card.mat-card, .user_container {
   background: #fafafa;
@@ -1202,3 +1203,66 @@ md-toolbar {
   box-shadow: 0 5px 10px -5px #888888;
   position: relative;
   background: #f4f4f4; }
+
+.detailAvatar {
+  width: 138px;
+  border: 1px solid #c3bdbf; }
+
+.detailHead {
+  width: 100%;
+  float: right;
+  padding: 10px; }
+
+.detailHead img {
+  width: 50px;
+  float: right;
+  cursor: pointer; }
+
+.usrContent {
+  float: left;
+  width: 73%;
+  height: 93%;
+  background: #fafafa;
+  border: 1px solid #c3bdbf;
+  box-shadow: 5px 0 10px -5px #888888; }
+
+.contentWrap {
+  padding: 35px; }
+
+.avBox {
+  float: left;
+  margin: 0 30px 0 0; }
+
+.UsrName {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 15px; }
+
+.UsrPos, .skills, .UsrPos {
+  display: table; }
+
+.usrContent .ControllButtons {
+  float: right; }
+
+.usrContent .ControllButtons .mat-raised-button {
+  margin: 10px; }
+
+.ControllButtons .del {
+  background-color: #da5464;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 35px;
+  font-size: 16px; }
+
+.ControllButtons .add {
+  background-color: #51be87;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 35px;
+  font-size: 16px; }
+
+.skill {
+  background: #e7e7e7;
+  color: #199e91;
+  margin: 5px;
+  padding: 5px 15px; }

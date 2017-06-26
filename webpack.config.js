@@ -49,7 +49,7 @@ module.exports = {
 	          use: [
 	            'css-loader',
 	            {
-	              loaders: ['sass-loader', 'resolve-url-loader'],
+	              loader: 'sass-loader',
 	              query: {
 	                sourceMap: false,
 	              },
