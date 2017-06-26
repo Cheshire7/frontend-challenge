@@ -49,7 +49,7 @@ module.exports = {
 	          use: [
 	            'css-loader',
 	            {
-	              loader: 'sass-loader',
+	              loaders: ['sass-loader', 'resolve-url-loader'],
 	              query: {
 	                sourceMap: false,
 	              },
@@ -91,7 +91,7 @@ module.exports = {
 
 	    new OpenBrowserPlugin({ url: 'http://localhost:8090' }),
 	],
-
+	
 
 	devServer: {
     contentBase: "./public",

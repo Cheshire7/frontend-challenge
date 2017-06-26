@@ -10,7 +10,7 @@ export class User {
     pol: string;
     birthday: string;
     position: string;
-    skill: string;
+    skill: any;
     characteristic: string;
 }
 
@@ -28,13 +28,18 @@ export class AppComponent implements OnInit {
 
     constructor(@Inject(HttpService) private httpService: HttpService) {
 
-}
+    }
 
-ngOnInit() {
-    this.httpService.getData().subscribe(users => this.user_list = users);
-}
+    ngOnInit() {
+        this.httpService.getData().subscribe(users => this.user_list = users);
+    }
 
-onSelect(user: User) {
-    this.selectedUser = user;
-}
+    onSelect(user: User) {
+        this.selectedUser = user;
+    }
+
+    hideUser(user: User) {
+        this.selectedUser = user;
+    }
+
 } 

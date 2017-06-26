@@ -9,7 +9,7 @@ export declare class User {
     pol: string;
     birthday: string;
     position: string;
-    skill: string;
+    skill: any;
     characteristic: string;
 }
 export declare class AppComponent implements OnInit {
@@ -19,4 +19,5 @@ export declare class AppComponent implements OnInit {
     constructor(httpService: HttpService);
     ngOnInit(): void;
     onSelect(user: User): void;
+    hideUser(user: User): void;
 }

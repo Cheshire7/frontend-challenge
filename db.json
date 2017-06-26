@@ -2,36 +2,36 @@
   "personal": [
     {
       "id": 1,
-      "photo": "avatar-1.png",
+      "photo": "imgs/avatar-2.png",
       "name": "Victor",
       "lastName": "Ivanov",
       "pol": "man",
       "birthday": "15.03.1992",
       "position": "manager",
-      "skill": "-",
-      "characteristic": "Long characteristic"
+      "skill": ["angular.js", "react", "node.js"],
+      "characteristic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et sem sagittis, interdum enim a, elementum nisi. Nulla consequat vitae nulla et accumsan. Suspendisse potenti. Proin vitae blandit metus, sed aliquam felis. Donec leo ex, mattis a ligula sed, facilisis pretium erat. Fusce quis dignissim sapien, id porta nisl. Fusce aliquet est et feugiat posuere. Cras eleifend molestie tellus, sed viverra nunc iaculis a."
     },
     {
       "id": 2,
-      "photo": "avatar-2.png",
+      "photo": "imgs/avatar-1.png",
       "name": "Marija",
       "lastName": "Petrova",
       "pol": "woman",
       "birthday": "25.05.1994",
       "position": "programmist",
-      "skill": "-",
-      "characteristic": "short characteristic"
+      "skill": ["react", "node.js"],
+      "characteristic": "Ut blandit congue leo, et imperdiet justo laoreet vitae. Pellentesque at sapien eu neque lobortis iaculis. Integer dui sem, tempus quis tempus vel, ullamcorper ut ante. Suspendisse potenti. Ut feugiat sagittis dolor non dapibus. Sed neque nibh, lobortis sit amet porttitor et, ullamcorper id metus. Duis est risus, aliquet et dictum a, gravida auctor ex. Nulla sit amet faucibus diam, non maximus magna. Curabitur ac euismod dolor. Etiam convallis, dolor vitae mollis tempor, est libero ultricies risus, quis pharetra nisi elit at arcu. Sed sed varius lorem. Ut sed vestibulum neque."
     },
     {
       "id": 3,
       "name": "Dmitrij",
-      "photo": "avatar-3.png",
+      "photo": "imgs/avatar-3.png",
       "lastName": "Sidorov",
       "pol": "man",
       "birthday": "17.08.1973",
       "position": "programmist",
-      "skill": "-",
-      "characteristic": "medium characteristic"
+      "skill": ["react", "node.js"],
+      "characteristic": "Aenean consectetur blandit ante ut placerat. Nam malesuada dapibus lectus, non tincidunt risus lobortis non. Integer nec finibus ante, in varius quam. Donec nec dapibus ante, nec feugiat erat. Quisque scelerisque, ipsum vel facilisis vulputate, purus ligula maximus arcu, ut accumsan leo purus eu eros. Nulla convallis felis augue, et venenatis magna varius a. Integer cursus, urna non molestie auctor, erat leo tristique ex, ac consequat neque velit in libero."
     }
   ]
 }
