@@ -1,15 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {AppComponent} from './app.component';
 import {MaterialModule} from '@angular/material';
-import { HttpModule } from '@angular/http';
+import {HttpModule} from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {AddComponent} from './add.component';
+
 import 'hammerjs';
 
  
 @NgModule({
-    imports:[BrowserModule, FormsModule, MaterialModule, HttpModule],
-    declarations: [AppComponent],
+    imports:[BrowserModule, FormsModule, MaterialModule, HttpModule, BrowserAnimationsModule],
+    declarations: [AppComponent, AddComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule{}

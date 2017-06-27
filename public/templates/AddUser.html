@@ -1,0 +1,45 @@
+
+<div class="usrContent">
+
+    <div class="detailHead"><a (click)="hideUserAdd()"><img src="./../imgs/close-icon.png" /></a></div>
+    <div class="contentWrap">
+        <div class="pictCase">
+            <input type="file" id="files" name="files[]" multiple />
+            <output id="list"></output>
+        </div>
+        <div class="mainInfoBarCase">
+        <div class="inpName">
+            <input placeholder="First name"/>
+            <input placeholder="Last Name"/>
+        </div>
+            <div class="inpPos"><input placeholder="Position"/></div>
+
+            <!--<div class="AutoComplete">-->
+                <!--<input id = "autoC" type="text" />-->
+                <!--<ul></ul>-->
+            <!--</div>-->
+
+            <div class="GenderSel">
+            <md-select trigger placeholder="Select Gender" [(ngModel)]="selectedValue" name="food">
+                <md-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </md-option>
+            </md-select>
+            </div>
+
+            <!--<md-input-container>-->
+                <!--<input mdInput [mdDatepicker]="picker" placeholder="Choose a date">-->
+                <!--<button mdSuffix [mdDatepickerToggle]="picker"></button>-->
+            <!--</md-input-container>-->
+            <!--<md-datepicker #picker></md-datepicker>-->
+
+        <textarea class="inpText" rows="10" cols="45" name="text"></textarea>
+        </div>
+        <div class="ControllButtons">
+            <button md-raised-button class="add">Save</button>
+        </div>
+    </div>
+
+</div>
+
+

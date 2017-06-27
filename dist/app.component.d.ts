@@ -15,9 +15,12 @@ export declare class User {
 export declare class AppComponent implements OnInit {
     private httpService;
     selectedUser: User;
-    user_list: Array<any>;
+    user_list: User;
+    condition: boolean;
     constructor(httpService: HttpService);
     ngOnInit(): void;
     onSelect(user: User): void;
     hideUser(user: User): void;
+    usrAdd(closeWindow: User): void;
+    onChanged(increased: any): void;
 }

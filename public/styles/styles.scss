@@ -6,10 +6,29 @@
   src: local('Roboto'), local('Roboto-Regular'),
        url('/assets/fonts/roboto-v16-cyrillic_latin/roboto-v16-cyrillic_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('/assets/fonts/roboto-v16-cyrillic_latin/roboto-v16-cyrillic_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-
 }
 
 @import '~@angular/material/prebuilt-themes/indigo-pink';
+
+$border: 2px solid #bdbbb4;
+$primary-color: #888888;
+$placeholder-color: #b9b6b6;
+
+@mixin inputs {
+  padding: 7px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+}
+
+@mixin buttons {
+  color: white;
+  border-radius: 5px;
+  padding: 10px 60px;
+  font-size: 16px;
+}
 
 body{
   background: #f1f1f1;
@@ -18,15 +37,14 @@ body{
 
 .user_container .elements .example-card {
   cursor: pointer;
-  border-bottom: 2px solid #bdbbb4;
+  border-bottom: $border;
   box-shadow: none;
   min-height: 83px;
 }
 
 md-card:first-child {
-  border-top: 2px solid #bdbbb4;
+  border-top: $border;
 }
-
 
 .avatarImage {
   border-radius: 155px;
@@ -34,17 +52,13 @@ md-card:first-child {
   width: 90%;
 }
 
-.avatar{
-  text-align: center;
-}
-
-.mat-card-header-text{
+.avatar, .mat-card-header-text{
   text-align: center;
 }
 
 .user_container{
   height: 93%;
-  width: 25%;
+  width: 26%;
   overflow: overlay;
   float: left;
   text-align: center;
@@ -68,7 +82,7 @@ md-card:first-child {
 
 .example-card.mat-card, .user_container{
   background: #fafafa;
-  box-shadow: 5px 0 10px -5px #888888;
+  box-shadow: 5px 0 10px -5px $primary-color;
 }
 
 .user_container .mat-card-header .mat-card-title{
@@ -81,7 +95,7 @@ md-card:first-child {
 }
 
 md-toolbar{
-  box-shadow: 0 5px 10px -5px #888888;
+  box-shadow: 0 5px 10px -5px $primary-color;
   position: relative;
   background: #f4f4f4;
 }
@@ -107,15 +121,15 @@ md-toolbar{
 
 .usrContent{
   float: left;
-  width: 73%;
+  width: 70%;
   height: 93%;
   background: #fafafa;
   border: 1px solid #c3bdbf;
-  box-shadow: 5px 0 10px -5px #888888;
+  box-shadow: 5px 0 10px -5px $primary-color;
 }
 
 .contentWrap{
-  padding: 35px;
+  padding: 35px 95px 35px 35px;
 }
 
 .avBox{
@@ -133,28 +147,35 @@ md-toolbar{
   display: table;
 }
 
-.usrContent .ControllButtons{
-  float: right;
+.usrContent{
+
+  .ControllButtons{
+    float: right;
+    width: 100%;
+  }
+
+  .ControllButtons button{
+    float: right;
+  }
+
+  .ControllButtons .mat-raised-button{
+    margin: 10px;
+  }
 }
 
-.usrContent .ControllButtons .mat-raised-button{
-  margin: 10px;
-}
+.ControllButtons{
 
-.ControllButtons .del{
-  background-color: #da5464;
-  color: white;
-  border-radius: 5px;
-  padding: 15px 35px;
-  font-size: 16px;
-}
+  .del{
+    @include buttons;
+    background-color: #da5464;
 
-.ControllButtons .add{
-  background-color: #51be87;
-  color: white;
-  border-radius: 5px;
-  padding: 15px 35px;
-  font-size: 16px;
+  }
+
+  .add{
+    @include buttons;
+    background-color: #51be87;
+
+  }
 }
 
 .skill{
@@ -163,6 +184,93 @@ md-toolbar{
   margin: 5px;
   padding: 5px 15px;
 }
+
+.thumb {
+  height: 75px;
+  border: 1px solid #000;
+  margin: 10px 5px 0 0;
+}
+
+.skillBox{
+  display: flex;
+}
+
+//Add/Edit
+
+.inpName input{
+  width: 48.8%;
+  @include inputs;
+}
+
+.inpPos input{
+  width: 99%;
+  @include inputs;
+}
+
+.pictCase{
+  width: 12%;
+  height: 60%;
+  float: left;
+}
+
+.mainInfoBarCase{
+  width: 88%;
+  float: left;
+}
+
+.inpName input::-webkit-input-placeholder, .inpPos input::-webkit-input-placeholder {color: $placeholder-color;}
+.inpName input::-moz-placeholder, .inpPos input::-moz-placeholder {color: $placeholder-color;}/* Firefox 19+ */
+.inpName input:-moz-placeholder, .inpPos input:-moz-placeholder {color: $placeholder-color;}/* Firefox 18- */
+.inpName input:-ms-input-placeholder, .inpPos input:-ms-input-placeholder {color: $placeholder-color;}
+
+.inpText{
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #ffffff;
+  border: 1px solid #cecece;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #6d4755;
+}
+
+.AutoComplete {
+  position: relative;
+  width: 200px;
+}
+
+.AutoComplete > * {
+  width: 100%;
+}
+
+.AutoComplete > ul {
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  display: none;
+  margin: 5px 0 0 0;
+  padding: 5px 0;
+  position: absolute;
+}
+
+.AutoComplete li {
+  display: block;
+  padding: 0 5px;
+}
+
+.AutoComplete li:hover {
+  background: #AAA;
+  cursor: pointer;
+}
+
+.GenderSel{
+  margin: 15px;
+}
+
+
+
+
+
+
 
 
 

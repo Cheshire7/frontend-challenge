@@ -61,27 +61,27 @@ module.exports = {
 	},
  
 	plugins: [
-		new webpack.ContextReplacementPlugin(
-		    /angular(\|\/)core(\|\/)(esm(\|\/)src|src)(\|\/)linker/,
-		    path.resolve('./src'), // каталог с исходными файлами
-		    {} // карта маршрутов
-	    ),
+			new webpack.ContextReplacementPlugin(
+				/angular(\|\/)core(\|\/)(esm(\|\/)src|src)(\|\/)linker/,
+				path.resolve('./src'), // каталог с исходными файлами
+				{} // карта маршрутов
+			),
 
-	    new webpack.optimize.CommonsChunkPlugin({
-      		name: ['app', 'vendor', 'polyfills']
-    	}),
+			new webpack.optimize.CommonsChunkPlugin({
+				name: ['app', 'vendor', 'polyfills']
+			}),
 
-		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'public/index.html'),
+			new HtmlWebpackPlugin({
+				template: path.resolve(__dirname, 'public/index.html'),
+			}),
+
+			new ExtractTextPlugin({ filename: '[name].[hash].css', disable: false, allChunks: true }),
+
+			new webpack.optimize.UglifyJsPlugin({
+		  mangle: {
+			keep_fnames: true
+		  }
 		}),
-
-		new ExtractTextPlugin({ filename: '[name].[hash].css', disable: false, allChunks: true }),
-
-		new webpack.optimize.UglifyJsPlugin({ 
-      mangle: {
-        keep_fnames: true
-      }
-    }),
 
 		new webpack.LoaderOptionsPlugin({
 	      htmlLoader: {
@@ -90,6 +90,13 @@ module.exports = {
 	    }),
 
 	    new OpenBrowserPlugin({ url: 'http://localhost:8090' }),
+
+		new webpack.ProvidePlugin({
+			"$":"jquery",
+			"jQuery":"jquery",
+			"window.jQuery":"jquery"
+		}),
+
 	],
 	
 

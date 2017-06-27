@@ -23,8 +23,9 @@ export class User {
 export class AppComponent implements OnInit {
 
     selectedUser: User;
+    user_list: User;
 
-    user_list: Array<any>;
+    condition: boolean = true;
 
     constructor(@Inject(HttpService) private httpService: HttpService) {
 
@@ -36,10 +37,20 @@ export class AppComponent implements OnInit {
 
     onSelect(user: User) {
         this.selectedUser = user;
+        this.condition = true;
     }
 
     hideUser(user: User) {
         this.selectedUser = user;
+    }
+
+    usrAdd(closeWindow: User){
+        this.condition = !this.condition;
+        this.selectedUser = closeWindow;
+    }
+
+    onChanged(increased){
+        this.condition = true;
     }
 
 }
