@@ -5,45 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/app.3fe89d28ed767598a8d3.css" rel="stylesheet"></head>
+    <link href="/app.64be01f43534fc8cc681.css" rel="stylesheet"></head>
     <body>
         <my-app>Загрузка...</my-app>
-        <div class="AutoComplete">
-            <input type="text" />
-            <ul></ul>
-        </div>
-
-        <script type="text/javascript">
-            window.onload = function () {
-                var data = ['Арбуз', 'Арба', 'Арбалет', 'Апельсин', 'Ананас', 'Банан', 'Виноград', 'Вишня'],
-                        input = document.querySelector('.AutoComplete > input'),
-                        list = input.nextElementSibling;
-                input['oninput' in input ? 'oninput' : 'onpropertychange'] = function () {
-                    var li,
-                            val = this.value.toLowerCase()
-                                    .split(' ')
-                                    .pop();
-                    if (val.length < 3) list.style.display = 'none';
-                    else { list.innerHTML = '';
-                        data.forEach(function (i) {
-                            var reg = new RegExp('^'+val, 'i');
-                            if (reg.test(i)) {
-                                li = document.createElement('li');
-                                li.appendChild(document.createTextNode(i))
-                                li.onclick = function () {
-                                    input.value = input.value.replace(/\S+$/, i);
-                                    input.focus();
-                                    list.innerHTML = '';
-                                    list.style.display = 'none';
-                                };
-                                list.appendChild(li);
-                                list.style.display = 'block'
-                            }
-                        });
-                    }
-                }
-            }
-        </script>
-    <script type="text/javascript" src="/polyfills.3fe89d28ed767598a8d3.js"></script><script type="text/javascript" src="/vendor.3fe89d28ed767598a8d3.js"></script><script type="text/javascript" src="/app.3fe89d28ed767598a8d3.js"></script></body>
+    <script type="text/javascript" src="/polyfills.64be01f43534fc8cc681.js"></script><script type="text/javascript" src="/vendor.64be01f43534fc8cc681.js"></script><script type="text/javascript" src="/app.64be01f43534fc8cc681.js"></script></body>
 </html>
 

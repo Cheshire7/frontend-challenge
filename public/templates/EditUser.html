@@ -1,0 +1,56 @@
+
+<div class="usrContent">
+
+    <div class="detailHead"><a (click)="hideUserAdd()"><img src="./../imgs/close-icon.png" /></a></div>
+    <div class="contentWrap">
+        <form name="form" #myForm="ngForm">
+            <div class="pictCase">
+
+                <a (click)="photoAdd()">
+                    <div class="avBox" onclick="document.getElementById('selectAv').click ()">
+                        <img *ngIf="!selected.name" class="addAvatar" src="./../imgs/photoPlace.png">
+                        <img *ngIf="selected.name" class="addAvatar" src="./../imgs/avatar-2.png">
+                    </div>
+                </a>
+                <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">
+            </div>
+
+            <div class="mainInfoBarCase">
+                <div class="inpName">
+                    <input type="text" name="name" placeholder="First name" [(ngModel)]="selected.name"/>
+                    <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="selected.lastName"/>
+                </div>
+
+                <div class="inpPos"><input type="text" name="position" [(ngModel)]="position" placeholder="Position"/></div>
+
+                <div class="inpSkill">
+                    <select name="skill" multiple name="skill" [(ngModel)]="selected.skill">
+                        <option disabled>Select skill</option>
+                        <option value="Angular">Angular</option>
+                        <option selected value="React">React</option>
+                        <option selected value="Node">Node</option>
+                    </select>
+                </div>
+
+                <div class="MultiInp">
+                    <select name="gender" [(ngModel)]="selected.gender">
+                        <option disabled>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option selected value="Female">Female</option>
+                    </select>
+                    <input name="birthday" type="date" [(ngModel)]="selected.birthday" />
+                </div>
+
+                <textarea [(ngModel)]="selected.characteristic" class="inpText" rows="10" cols="45" name="characteristic"></textarea>
+            </div>
+
+            <div class="ControllButtons">
+                <button md-raised-button (click)="UserEdit(myForm)" class="add">Save</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+

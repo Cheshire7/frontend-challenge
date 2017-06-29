@@ -103,9 +103,9 @@ md-toolbar{
 //Detail
 
 .detailAvatar{
-  width: 138px;
-  border: 1px solid #c3bdbf;
-}
+   width: 138px;
+   border: 1px solid #c3bdbf;
+ }
 
 .detailHead{
   width: 100%;
@@ -151,10 +151,12 @@ md-toolbar{
 
   .ControllButtons{
     float: right;
-    width: 100%;
+  }
+  .ControllButtons .add{
+    float: left;
   }
 
-  .ControllButtons button{
+  .ControllButtons .dell{
     float: right;
   }
 
@@ -231,6 +233,7 @@ md-toolbar{
   font-size: 14px;
   border-radius: 5px;
   color: #6d4755;
+  width: 100%;
 }
 
 .AutoComplete {
@@ -262,9 +265,20 @@ md-toolbar{
   cursor: pointer;
 }
 
-.GenderSel{
+.GenderSel, .inpSkill, .MultiInp, .MultiInp input{
   margin: 15px;
 }
+
+.addAvatar{
+  width: 138px;
+  cursor: pointer;
+}
+
+.hidden{
+  display: none;
+
+}
+
 
 
 

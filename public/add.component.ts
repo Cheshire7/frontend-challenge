@@ -1,6 +1,6 @@
-import { Input, Output, EventEmitter, Component, OnInit, Inject } from '@angular/core';
-import { HttpService } from './http.service';
-import './autocomplete';
+import { Input, Output, Inject, EventEmitter, Component } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Http} from '@angular/http';
 import './styles/styles.scss';
 
 export class User {
@@ -8,7 +8,7 @@ export class User {
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
@@ -18,33 +18,36 @@ export class User {
 @Component({
     selector: 'usr-add',
     templateUrl: './templates/AddUser.html',
-    providers: [HttpService]
 })
 
-export class AddComponent implements OnInit {
+export class AddComponent {
 
     user_list: Array<any>;
     @Input() userName: string;
-    condition: boolean = true;
+    add: boolean = true;
 
-    constructor(@Inject(HttpService) private httpService: HttpService) {
-    }
-
-    ngOnInit() {
-        this.httpService.getData().subscribe(users => this.user_list = users);
-    }
+    constructor(@Inject(Http) private http: Http) { }
 
     @Output() onChanged = new EventEmitter<boolean>();
-        hideUserAdd(increased) {
+    hideUserAdd(increased) {
         this.onChanged.emit(increased);
     }
 
-    selectedValue: string;
+    UserAdd(form: NgForm){
+        let link = '/api/personal/';
+        let data = form.value;
+        if(data.photo == true){
+            data.photo = "imgs/avatar-2.png";
+        }else{
+            data.photo = "";
+        }
+        this.http.post(link, data).subscribe((res) => {
+        });
+    }
 
-    foods = [
-        {value: 'steak-0', viewValue: 'Male'},
-        {value: 'pizza-1', viewValue: 'Female'}
-    ];
+    avatar: boolean = true;
 
-
+    photoAdd() {
+        this.avatar = !this.avatar;
+    }
 }

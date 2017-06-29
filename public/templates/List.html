@@ -1,7 +1,6 @@
 
 <md-toolbar><h1>List</h1></md-toolbar>
 
-<!--user lost-->
 <div class="user_container">
     <div class="AddContainer">
         <a (click)="usrAdd()"><img class="addUsr" src="./../imgs/add.png"/></a>
@@ -12,7 +11,8 @@
 
             <div class="usrImgCont">
                 <div class="avatar">
-                    <img class="avatarImage" src="{{user.photo}}">
+                    <img *ngIf="user.photo" class="avatarImage" src="./../imgs/avatar-2.png">
+                    <img *ngIf="!user.photo" class="avatarImage" src="./../imgs/photoPlace.png">
                 </div>
             </div>
 
@@ -24,15 +24,22 @@
         </md-card>
     </div>
 </div>
-<usr-add *ngIf="!condition" (onChanged)="onChanged($event)"></usr-add>
-<div class="usrContent" *ngIf="selectedUser">
+
+<usr-add *ngIf="add" (onChanged)="onChangedAdd($event)"></usr-add>
+
+<usr-edit [selected]="selectedUser" *ngIf="edit" (onChanged)="onChangedEdit($event)"></usr-edit>
+
+<div class="usrContent" *ngIf="detail">
     <div class="detailHead"><a (click)="hideUser(user)"><img src="./../imgs/close-icon.png" /></a></div>
     <div class="contentWrap">
-        <div class="avBox"><img class="detailAvatar" src="{{selectedUser.photo}}"></div>
+        <div class="avBox">
+            <img *ngIf="selectedUser.photo" class="detailAvatar" src="./../imgs/avatar-2.png">
+            <img *ngIf="!selectedUser.photo" class="detailAvatar" src="./../imgs/photoPlace.png">
+        </div>
         <div class="detailContent">
             <div class="NameBox">
                 <span class="UsrName">{{selectedUser.name}} {{selectedUser.lastName}}</span>
-                <span>({{selectedUser.pol}}, {{selectedUser.birthday}})</span>
+                <span>({{selectedUser.gender}}, {{selectedUser.birthday}})</span>
             </div>
             <span class="UsrPos">{{selectedUser.position}}</span>
             <div class="skillBox">
@@ -42,22 +49,7 @@
         </div>
     </div>
     <div class="ControllButtons">
-        <button md-raised-button class="add">Edit user</button>
-        <button md-raised-button class="del">Delete user</button>
+        <button md-raised-button (click)="usrEdit(selectedUser)" class="add">Edit user</button>
+        <button md-raised-button (click)="usrDel(selectedUser)" class="del">Delete user</button>
     </div>
 </div>
-
-<!--<form>-->
-    <!--<h3>Добавить сотрудника</h3>-->
-
-    <!--<div class='field'>-->
-        <!--<label for='title'>Имя</label>-->
-        <!--<input type='text' name='name' #newtitle>-->
-    <!--</div>-->
-
-    <!--<div class='field'>-->
-        <!--<label for='position'>Должность</label>-->
-        <!--<input type='text' name='position' #newposition>-->
-    <!--</div>-->
-    <!--<button (click)='UserAdd(newtitle, newposition)'>Отправить</button>-->
-<!--</form>-->

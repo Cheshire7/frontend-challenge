@@ -1,30 +1,27 @@
-import { EventEmitter, OnInit } from '@angular/core';
-import { HttpService } from './http.service';
-import './autocomplete';
+import { EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Http } from '@angular/http';
 import './styles/styles.scss';
 export declare class User {
     id: number;
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
     characteristic: string;
 }
-export declare class AddComponent implements OnInit {
-    private httpService;
+export declare class AddComponent {
+    private http;
     user_list: Array<any>;
     userName: string;
-    condition: boolean;
-    constructor(httpService: HttpService);
-    ngOnInit(): void;
+    add: boolean;
+    constructor(http: Http);
     onChanged: EventEmitter<boolean>;
     hideUserAdd(increased: any): void;
-    selectedValue: string;
-    foods: {
-        value: string;
-        viewValue: string;
-    }[];
+    UserAdd(form: NgForm): void;
+    avatar: boolean;
+    photoAdd(): void;
 }

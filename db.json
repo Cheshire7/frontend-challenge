@@ -5,10 +5,14 @@
       "photo": "imgs/avatar-2.png",
       "name": "Victor",
       "lastName": "Ivanov",
-      "pol": "man",
+      "gender": "man",
       "birthday": "15.03.1992",
       "position": "manager",
-      "skill": ["angular.js", "react", "node.js"],
+      "skill": [
+        "angular.js",
+        "react",
+        "node.js"
+      ],
       "characteristic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et sem sagittis, interdum enim a, elementum nisi. Nulla consequat vitae nulla et accumsan. Suspendisse potenti. Proin vitae blandit metus, sed aliquam felis. Donec leo ex, mattis a ligula sed, facilisis pretium erat. Fusce quis dignissim sapien, id porta nisl. Fusce aliquet est et feugiat posuere. Cras eleifend molestie tellus, sed viverra nunc iaculis a."
     },
     {
@@ -16,10 +20,13 @@
       "photo": "imgs/avatar-1.png",
       "name": "Marija",
       "lastName": "Petrova",
-      "pol": "woman",
+      "gender": "woman",
       "birthday": "25.05.1994",
       "position": "programmist",
-      "skill": ["react", "node.js"],
+      "skill": [
+        "react",
+        "node.js"
+      ],
       "characteristic": "Ut blandit congue leo, et imperdiet justo laoreet vitae. Pellentesque at sapien eu neque lobortis iaculis. Integer dui sem, tempus quis tempus vel, ullamcorper ut ante. Suspendisse potenti. Ut feugiat sagittis dolor non dapibus. Sed neque nibh, lobortis sit amet porttitor et, ullamcorper id metus. Duis est risus, aliquet et dictum a, gravida auctor ex. Nulla sit amet faucibus diam, non maximus magna. Curabitur ac euismod dolor. Etiam convallis, dolor vitae mollis tempor, est libero ultricies risus, quis pharetra nisi elit at arcu. Sed sed varius lorem. Ut sed vestibulum neque."
     },
     {
@@ -27,11 +34,42 @@
       "name": "Dmitrij",
       "photo": "imgs/avatar-3.png",
       "lastName": "Sidorov",
-      "pol": "man",
+      "gender": "man",
       "birthday": "17.08.1973",
       "position": "",
-      "skill": ["react", "node.js"],
+      "skill": [
+        "react",
+        "node.js"
+      ],
       "characteristic": ""
+    },
+    {
+      "name": "Igor",
+      "lastName": "Testerov",
+      "position": "Pos",
+      "skill": [
+        "React",
+        "Node"
+      ],
+      "gender": "Male",
+      "date": "2017-06-07",
+      "characteristic": "description",
+      "id": 5
+    },
+    {
+      "photo": "imgs/avatar-2.png",
+      "name": "test",
+      "id": 6
+    },
+    {
+      "photo": "",
+      "name": "test",
+      "lastName": "test-1",
+      "id": 7
+    },
+    {
+      "photo": "",
+      "id": 8
     }
   ]
 }

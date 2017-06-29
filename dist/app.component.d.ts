@@ -1,5 +1,5 @@
 import { OnInit } from '@angular/core';
-import { HttpService } from './http.service';
+import { Http } from '@angular/http';
 import './styles/styles.scss';
 export declare class User {
     id: number;
@@ -13,14 +13,19 @@ export declare class User {
     characteristic: string;
 }
 export declare class AppComponent implements OnInit {
-    private httpService;
+    private http;
     selectedUser: User;
     user_list: User;
-    condition: boolean;
-    constructor(httpService: HttpService);
+    add: boolean;
+    edit: boolean;
+    detail: boolean;
+    constructor(http: Http);
     ngOnInit(): void;
     onSelect(user: User): void;
+    usrEdit(selectedUser: User): void;
     hideUser(user: User): void;
     usrAdd(closeWindow: User): void;
-    onChanged(increased: any): void;
+    onChangedAdd(increased: any): void;
+    onChangedEdit(increased: any): void;
+    usrDel(selectedUser: any): void;
 }
