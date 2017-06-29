@@ -8,14 +8,14 @@
     <div class="elements">
         <md-card *ngFor="let user of user_list" class="example-card" [class.selected]="user === selectedUser"
                  (click)="onSelect(user)">
-
+            <div class="gradient" [ngStyle]="{height:user.percent}"></div>
             <div class="usrImgCont">
                 <div class="avatar">
                     <img *ngIf="user.photo" class="avatarImage" src="./../imgs/avatar-2.png">
                     <img *ngIf="!user.photo" class="avatarImage" src="./../imgs/photoPlace.png">
                 </div>
             </div>
-
+            <!--<span>Filled profile: {{user.percent}}%</span>-->
             <md-card-header>
                 <md-card-title>{{user.name}} {{user.lastName}}</md-card-title>
                 <md-card-subtitle>{{user.position}}</md-card-subtitle>

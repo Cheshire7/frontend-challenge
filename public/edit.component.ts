@@ -22,6 +22,9 @@ export class User {
 
 export class EditComponent {
 
+    power = 10;
+    factor = 1;
+
     @Input() selected: Array<any>;
 
     user_list: Array<any>;

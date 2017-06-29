@@ -6,13 +6,14 @@
         <form name="form" #myForm="ngForm">
             <div class="pictCase">
 
-                <a (click)="photoAdds(event)">
+                <a class="changeAv" (click)="photoAdds(event)">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
                         <img *ngIf="!selected.photo" class="addAvatar"  src="./../imgs/photoPlace.png">
                         <img *ngIf="selected.photo" class="addAvatar" src="./../imgs/avatar-2.png">
                     </div>
                 </a>
                 <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">
+                <span>Filled profile: {{selected.percent}}%</span>
             </div>
 
             <div class="mainInfoBarCase">
@@ -27,8 +28,8 @@
                     <select name="skill" multiple name="skill" [(ngModel)]="selected.skill">
                         <option disabled>Select skill</option>
                         <option value="Angular">Angular</option>
-                        <option selected value="React">React</option>
-                        <option selected value="Node">Node</option>
+                        <option value="React">React</option>
+                        <option value="Node">Node</option>
                     </select>
                 </div>
 
@@ -36,7 +37,7 @@
                     <select name="gender" [(ngModel)]="selected.gender">
                         <option disabled>Select Gender</option>
                         <option value="Male">Male</option>
-                        <option selected value="Female">Female</option>
+                        <option value="Female">Female</option>
                     </select>
                     <input name="birthday" type="date" [(ngModel)]="selected.birthday" />
                 </div>

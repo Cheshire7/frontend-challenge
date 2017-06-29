@@ -36,11 +36,59 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.http.get('/api/personal').subscribe((resp: Response) => {
-            let usersList = resp.json();
-            this.user_list = usersList;
+            let List = resp.json();
+
+            for(let index in List){
+                List[index].percent = 0;
+            }
+
+            for(let index in List){
+
+                if(List[index].photo != undefined){
+                    let sum = List[index].percent + 20;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].name != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].lastName != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].gender != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].birthday != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].position != undefined){
+                    let sum = List[index].percent + 10;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].skill){
+                    let multiple = List[index].skill.length * 5;
+                    let sum = List[index].percent + multiple;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].characteristic != undefined){
+                    let sum = List[index].percent + 10;
+                    List[index].percent = sum;
+                }
+            }
+            this.user_list = List;
         });
 
-        //    .map(res => res.json()).subscribe(users => this.user_list = users);
+        //.map(res => res.json()).subscribe(users => this.user_list = users);
         //console.log(this.user_list);
 
     }
