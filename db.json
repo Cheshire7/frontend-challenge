@@ -6,7 +6,7 @@
       "name": "Victor",
       "lastName": "Ivanov",
       "gender": "man",
-      "birthday": "15.03.1992",
+      "birthday": "1992-03-15",
       "position": "manager",
       "skill": [
         "angular.js",
@@ -21,7 +21,7 @@
       "name": "Marija",
       "lastName": "Petrova",
       "gender": "woman",
-      "birthday": "25.05.1994",
+      "birthday": "1990-05-15",
       "position": "programmist",
       "skill": [
         "react",
@@ -35,7 +35,7 @@
       "photo": "imgs/avatar-3.png",
       "lastName": "Sidorov",
       "gender": "man",
-      "birthday": "17.08.1973",
+      "birthday": "1989-07-18",
       "position": "",
       "skill": [
         "react",
@@ -52,7 +52,6 @@
         "Node"
       ],
       "gender": "Male",
-      "date": "2017-06-07",
       "characteristic": "description",
       "id": 5
     },
@@ -62,9 +61,14 @@
       "id": 6
     },
     {
-      "photo": "",
-      "name": "test",
-      "lastName": "test-1",
+      "photo": "imgs/avatar-2.png",
+      "name": "Mike",
+      "lastName": "Pinkman",
+      "position": "engineer",
+      "skill": [
+        "Angular"
+      ],
+      "gender": "Male",
       "id": 7
     },
     {

@@ -23,5 +23,5 @@ export declare class EditComponent {
     hideUserAdd(increased: any): void;
     UserEdit(form: NgForm): void;
     avatar: boolean;
-    photoAdd(): void;
+    imgSrc: string;
 }

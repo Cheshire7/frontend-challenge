@@ -46,13 +46,19 @@ export class EditComponent {
         }else{
             data.photo = "";
         }
-        this.http.post(link, data).subscribe((res) => {
+        this.http.put(link, data).subscribe((res) => {
         });
     }
 
     avatar: boolean = true;
 
-    photoAdd() {
-        this.avatar = !this.avatar;
-    }
+    imgSrc: string;
+
+    //photoAdds() {
+    //    if(this.imgSrc == "./../imgs/photoPlace.png"){
+    //        this.imgSrc = "./../imgs/avatar-2.png";
+    //    }else{
+    //        this.imgSrc = "./../imgs/photoPlace.png";
+    //    }
+    //}
 }

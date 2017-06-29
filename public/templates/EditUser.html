@@ -6,10 +6,10 @@
         <form name="form" #myForm="ngForm">
             <div class="pictCase">
 
-                <a (click)="photoAdd()">
+                <a (click)="photoAdds(event)">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
-                        <img *ngIf="!selected.name" class="addAvatar" src="./../imgs/photoPlace.png">
-                        <img *ngIf="selected.name" class="addAvatar" src="./../imgs/avatar-2.png">
+                        <img *ngIf="!selected.photo" class="addAvatar"  src="./../imgs/photoPlace.png">
+                        <img *ngIf="selected.photo" class="addAvatar" src="./../imgs/avatar-2.png">
                     </div>
                 </a>
                 <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">

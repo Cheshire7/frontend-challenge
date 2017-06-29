@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import './styles/styles.scss';
 
 export class User {
@@ -30,27 +30,20 @@ export class AppComponent implements OnInit {
 
     constructor(@Inject(Http) private http: Http) { }
 
+    //ngOnInit() {
+    //    this.http.get('/api/personal').map(res => res.json()).subscribe(users => this.user_list = users);
+    //}
+
     ngOnInit() {
-        this.http.get('/api/personal').map(res => res.json()).subscribe(users => this.user_list = users);
+        this.http.get('/api/personal').subscribe((resp: Response) => {
+            let usersList = resp.json();
+            this.user_list = usersList;
+        });
+
+        //    .map(res => res.json()).subscribe(users => this.user_list = users);
+        //console.log(this.user_list);
 
     }
-
-//ngOnInit() {
-//    this.http.get('/api/personal').subscribe((resp: Response) => {
-//        let usersList = resp.json();
-//
-//        for(let index in usersList){
-//
-//            usersList[index];
-//            //let user = usersList[index];
-//            //this.users.push({name: user.userName, age: user.userAge});
-//        }
-//    });
-//
-//    //    .map(res => res.json()).subscribe(users => this.user_list = users);
-//    //console.log(this.user_list);
-//
-//}
 
     // user detail
     onSelect(user: User) {
@@ -75,8 +68,9 @@ export class AppComponent implements OnInit {
     //user add
     usrAdd(closeWindow: User){
         this.edit = false;
+        this.detail = false;
         this.add = !this.add;
-        this.selectedUser = closeWindow;
+        //this.selectedUser = closeWindow;
     }
 
     // Close in add component
