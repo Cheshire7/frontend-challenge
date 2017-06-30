@@ -10,7 +10,7 @@
                 <a (click)="photoAdd()">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
                         <img *ngIf="avatar" class="addAvatar" src="./../imgs/photoPlace.png">
-                        <img *ngIf="!avatar" class="addAvatar" src="./../imgs/avatar-2.png">
+                        <img *ngIf="!avatar" class="addAvatar" src="https://unsplash.it/200/?random">
                     </div>
                 </a>
                 <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">

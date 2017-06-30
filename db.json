@@ -5,7 +5,7 @@
       "photo": "imgs/avatar-2.png",
       "name": "Victor",
       "lastName": "Ivanov",
-      "gender": "man",
+      "gender": "Male",
       "birthday": "1992-03-15",
       "position": "manager",
       "skill": [
@@ -20,7 +20,7 @@
       "photo": "imgs/avatar-1.png",
       "name": "Marija",
       "lastName": "Petrova",
-      "gender": "woman",
+      "gender": "Female",
       "birthday": "1990-05-15",
       "position": "programmist",
       "skill": [
@@ -34,7 +34,7 @@
       "name": "Dmitrij",
       "photo": "imgs/avatar-3.png",
       "lastName": "Sidorov",
-      "gender": "man",
+      "gender": "Male",
       "birthday": "1989-07-18",
       "position": "",
       "skill": [
@@ -44,7 +44,8 @@
       "characteristic": ""
     },
     {
-      "name": "Igor",
+      "photo": "",
+      "name": "Igor2",
       "lastName": "Testerov",
       "position": "Pos",
       "skill": [
@@ -56,29 +57,9 @@
       "id": 5
     },
     {
-      "photo": "imgs/avatar-2.png",
-      "name": "test",
+      "photo": "",
+      "name": "Test",
       "id": 6
-    },
-    {
-      "photo": "imgs/avatar-2.png",
-      "name": "Mike",
-      "lastName": "Pinkman",
-      "position": "engineer",
-      "skill": [
-        "Angular"
-      ],
-      "gender": "Male",
-      "id": 7
-    },
-    {
-      "photo": "",
-      "id": 8
-    },
-    {
-      "photo": "",
-      "name": "Enother user",
-      "id": 9
     }
   ]
 }

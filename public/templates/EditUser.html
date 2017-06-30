@@ -9,7 +9,7 @@
                 <a class="changeAv" (click)="photoAdds(event)">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
                         <img *ngIf="!selected.photo" class="addAvatar"  src="./../imgs/photoPlace.png">
-                        <img *ngIf="selected.photo" class="addAvatar" src="./../imgs/avatar-2.png">
+                        <img *ngIf="selected.photo" class="addAvatar" src="https://unsplash.it/200?image={{selected.id}}">
                     </div>
                 </a>
                 <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">
@@ -22,23 +22,24 @@
                     <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="selected.lastName"/>
                 </div>
 
-                <div class="inpPos"><input type="text" name="position" [(ngModel)]="position" placeholder="Position"/></div>
+                <div class="inpPos"><input type="text" name="position" [(ngModel)]="selected.position" placeholder="Position"/></div>
 
                 <div class="inpSkill">
                     <select name="skill" multiple name="skill" [(ngModel)]="selected.skill">
                         <option disabled>Select skill</option>
-                        <option value="Angular">Angular</option>
-                        <option value="React">React</option>
-                        <option value="Node">Node</option>
+                        <option *ngFor="let c of selected.skill" [ngValue]="c">{{c}}</option>
+                        <!--<option value="React">React</option>-->
+                        <!--<option value="Node">Node</option>-->
                     </select>
                 </div>
 
                 <div class="MultiInp">
-                    <select name="gender" [(ngModel)]="selected.gender">
+
+                     <select name="gender" [ngModel]="selected.gender">
                         <option disabled>Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
+                        <option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender.name === selected.gender">{{gender.name}}</option>
+                     </select>
+
                     <input name="birthday" type="date" [(ngModel)]="selected.birthday" />
                 </div>
 

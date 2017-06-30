@@ -22,13 +22,10 @@ export class User {
 
 export class EditComponent {
 
-    power = 10;
-    factor = 1;
-
+    genders = [{name: 'Male'}, {name: 'Female'}];
     @Input() selected: Array<any>;
 
     user_list: Array<any>;
-    //@Input() userName: string;
     condition: boolean = true;
 
     constructor(@Inject(Http) private http: Http) { }
@@ -40,8 +37,9 @@ export class EditComponent {
     }
 
     UserEdit(form: NgForm){
-     console.log(form.value);
-        let link = '/api/personal/7';
+
+        let id = this.selected["id"];
+        let link = '/api/personal/'+id;
         let data = form.value;
 
         if(data.photo == true){

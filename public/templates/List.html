@@ -11,7 +11,7 @@
             <div class="gradient" [ngStyle]="{height:user.percent}"></div>
             <div class="usrImgCont">
                 <div class="avatar">
-                    <img *ngIf="user.photo" class="avatarImage" src="./../imgs/avatar-2.png">
+                    <img *ngIf="user.photo" class="avatarImage" src="https://unsplash.it/200?image={{user.id}}">
                     <img *ngIf="!user.photo" class="avatarImage" src="./../imgs/photoPlace.png">
                 </div>
             </div>
@@ -33,13 +33,13 @@
     <div class="detailHead"><a (click)="hideUser(user)"><img src="./../imgs/close-icon.png" /></a></div>
     <div class="contentWrap">
         <div class="avBox">
-            <img *ngIf="selectedUser.photo" class="detailAvatar" src="./../imgs/avatar-2.png">
+            <img *ngIf="selectedUser.photo" class="detailAvatar" src="https://unsplash.it/200?image={{selectedUser.id}}">
             <img *ngIf="!selectedUser.photo" class="detailAvatar" src="./../imgs/photoPlace.png">
         </div>
         <div class="detailContent">
             <div class="NameBox">
                 <span class="UsrName">{{selectedUser.name}} {{selectedUser.lastName}}</span>
-                <span>({{selectedUser.gender}}, {{selectedUser.birthday}})</span>
+                <span>(<span *ngIf="selectedUser.gender">{{selectedUser.gender}},</span> {{selectedUser.birthday}})</span>
             </div>
             <span class="UsrPos">{{selectedUser.position}}</span>
             <div class="skillBox">
