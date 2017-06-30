@@ -22,6 +22,7 @@ export class User {
 
 export class AddComponent {
 
+    genders = ['Male', 'Female'];
     user_list: Array<any>;
     @Input() userName: string;
     add: boolean = true;

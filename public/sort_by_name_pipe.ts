@@ -1,9 +1,24 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe} from '@angular/core';
 
-@Pipe({name: 'exponentialStrength'})
-export class ExponentialStrengthPipe implements PipeTransform {
-    transform(value: number, exponent: string): number {
-        let exp = parseFloat(exponent);
-        return Math.pow(value, isNaN(exp) ? 1 : exp);
+// Tell Angular2 we're creating a Pipe with TypeScript decorators
+@Pipe({
+    name: 'namePipe'
+})
+export class namePipe {
+
+    transform(value, args?) {
+        if(!args) {
+            return value;
+        }else{
+            return value.filter(user => {
+                for (let key in user) {
+                    if ((typeof user[key] === 'string' || user[key] instanceof String)
+                        && (user[key].indexOf(args) !== -1)) {
+                        return true;
+                    }
+                }
+
+            });
+        }
     }
 }

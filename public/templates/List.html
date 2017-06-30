@@ -5,19 +5,28 @@
     <div class="AddContainer">
         <a (click)="usrAdd()"><img class="addUsr" src="./../imgs/add.png"/></a>
     </div>
+    <div>
+        <form>
+            <input placeholder="Поиск" type="search" (input)="nameValue = $event.target.value">
+        </form>
+        <button (click)="sortOff()">No sort</button>
+        <button (click)="onBirth()">Birthday</button>
+        <button (click)="onGender()">Gender</button>
+    </div>
     <div class="elements">
-        <md-card *ngFor="let user of user_list" class="example-card" [class.selected]="user === selectedUser"
+        <md-card *ngFor="let user of user_list | birthdayPipe:birthSort | namePipe:nameValue" class="example-card" [class.selected]="user === selectedUser"
                  (click)="onSelect(user)">
-            <div class="gradient" [ngStyle]="{height:user.percent}"></div>
+            <div [ngClass]="(user.percent >= 50)?'gradient':'lowGradient'" [ngStyle]="{height:user.percent + '%'}"></div>
             <div class="usrImgCont">
                 <div class="avatar">
                     <img *ngIf="user.photo" class="avatarImage" src="https://unsplash.it/200?image={{user.id}}">
                     <img *ngIf="!user.photo" class="avatarImage" src="./../imgs/photoPlace.png">
                 </div>
             </div>
-            <!--<span>Filled profile: {{user.percent}}%</span>-->
+            {{user.gender}}
             <md-card-header>
                 <md-card-title>{{user.name}} {{user.lastName}}</md-card-title>
+                <md-card-subtitle>{{user.birthday}}</md-card-subtitle>
                 <md-card-subtitle>{{user.position}}</md-card-subtitle>
                 <md-card-subtitle><span *ngFor="let skill of user.skill" class="skill">{{skill}}</span></md-card-subtitle>
             </md-card-header>
@@ -28,7 +37,7 @@
 <usr-add *ngIf="add" (onChanged)="onChangedAdd($event)"></usr-add>
 
 <usr-edit [selected]="selectedUser" *ngIf="edit" (onChanged)="onChangedEdit($event)"></usr-edit>
-
+<router-outlet></router-outlet>
 <div class="usrContent" *ngIf="detail">
     <div class="detailHead"><a (click)="hideUser(user)"><img src="./../imgs/close-icon.png" /></a></div>
     <div class="contentWrap">
@@ -39,7 +48,7 @@
         <div class="detailContent">
             <div class="NameBox">
                 <span class="UsrName">{{selectedUser.name}} {{selectedUser.lastName}}</span>
-                <span>(<span *ngIf="selectedUser.gender">{{selectedUser.gender}},</span> {{selectedUser.birthday}})</span>
+                <span *ngIf="selectedUser.gender || selectedUser.birthday">(<span *ngIf="selectedUser.gender">{{selectedUser.gender}}</span><span *ngIf="selectedUser.gender && selectedUser.birthday">, </span>{{selectedUser.birthday}})</span>
             </div>
             <span class="UsrPos">{{selectedUser.position}}</span>
             <div class="skillBox">

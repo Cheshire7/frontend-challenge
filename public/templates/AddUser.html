@@ -27,7 +27,7 @@
 
             <div class="inpSkill">
                 <select name="skill" multiple name="skill" [(ngModel)]="skill">
-                    <option disabled>Select skill</option>
+                    <option [disabled] = true>Select skill</option>
                     <option value="Angular">Angular</option>
                     <option value="React">React</option>
                     <option value="Node">Node</option>
@@ -36,9 +36,8 @@
 
             <div class="MultiInp">
                 <select name="gender" [(ngModel)]="gender">
-                    <option disabled>Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option [disabled] = true>Select Gender</option>
+                    <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
                 </select>
                 <input name="birthday" type="date" [(ngModel)]="birthday" />
             </div>

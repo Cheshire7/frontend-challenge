@@ -22,7 +22,7 @@ export class User {
 
 export class EditComponent {
 
-    genders = [{name: 'Male'}, {name: 'Female'}];
+    genders = ['Male', 'Female'];
     @Input() selected: Array<any>;
 
     user_list: Array<any>;

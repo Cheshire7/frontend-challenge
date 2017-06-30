@@ -23,10 +23,16 @@ export class AppComponent implements OnInit {
 
     selectedUser: User;
     user_list: User;
-
+    nameValue: string;
     add: boolean = false;
     edit: boolean = false;
     detail: boolean = false;
+    birthSort: string;
+    genderSort: string;
+    DefaultSort: string;
+
+    order = "age";
+    ascending = true;
 
     constructor(@Inject(Http) private http: Http) { }
 
@@ -137,5 +143,19 @@ export class AppComponent implements OnInit {
         let link = '/api/personal/'+id;
         this.http.delete(link).subscribe((res) => {
         });
+    }
+
+    // birthday sort
+    onBirth(){
+        this.birthSort = "-birthday";
+    }
+
+    // gender sort
+    onGender(){
+        this.genderSort = "gender";
+    }
+
+    sortOff(){
+    this.DefaultSort = "";
     }
 }

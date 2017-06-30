@@ -15,6 +15,7 @@ export declare class User {
 }
 export declare class AddComponent {
     private http;
+    genders: string[];
     user_list: Array<any>;
     userName: string;
     add: boolean;

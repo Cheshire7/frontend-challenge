@@ -15,9 +15,7 @@ export declare class User {
 }
 export declare class EditComponent {
     private http;
-    genders: {
-        name: string;
-    }[];
+    genders: string[];
     selected: Array<any>;
     user_list: Array<any>;
     condition: boolean;

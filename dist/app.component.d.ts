@@ -16,9 +16,15 @@ export declare class AppComponent implements OnInit {
     private http;
     selectedUser: User;
     user_list: User;
+    nameValue: string;
     add: boolean;
     edit: boolean;
     detail: boolean;
+    birthSort: string;
+    genderSort: string;
+    DefaultSort: string;
+    order: string;
+    ascending: boolean;
     constructor(http: Http);
     ngOnInit(): void;
     onSelect(user: User): void;
@@ -28,4 +34,7 @@ export declare class AppComponent implements OnInit {
     onChangedAdd(increased: any): void;
     onChangedEdit(increased: any): void;
     usrDel(selectedUser: any): void;
+    onBirth(): void;
+    onGender(): void;
+    sortOff(): void;
 }
