@@ -3,19 +3,24 @@
 
 <div class="user_container">
     <div class="AddContainer">
-        <a (click)="usrAdd()" [routerLink]="['add']"><img class="addUsr" src="./../imgs/add.png"/></a>
+       <img [routerLink]="['add']" class="addUsr" src="./../imgs/add.png"/>
     </div>
-    <div>
+    <div class="controllPanel">
         <form>
             <input placeholder="Поиск" type="search" (input)="nameValue = $event.target.value">
         </form>
-        <button (click)="sortOff()">No sort</button>
-        <button (click)="onBirth()">Birthday</button>
-        <button (click)="onGender()">Gender</button>
+
+        <div class="radio-toolbar">
+            <input (click)="onBirth()" type="radio" id="radio1" name="radios" value="all">
+            <label for="radio1">Birthday</label>
+
+            <input (click)="onGender()" type="radio" id="radio2" name="radios" value="false">
+            <label for="radio2">Gender</label>
+        </div>
     </div>
     <div class="elements">
         <md-card *ngFor="let user of user_list | birthdayPipe:birthSort | namePipe:nameValue" class="example-card" [class.selected]="user === selectedUser"
-                 [routerLink]="['detail/', user.id]" [routerLink]="['']">
+                 [routerLink]="['detail/', user.id]" (click)="onSelect(user)">
             <div [ngClass]="(user.percent >= 50)?'gradient':'lowGradient'" [ngStyle]="{height:user.percent + '%'}"></div>
             <div class="usrImgCont">
                 <div class="avatar">

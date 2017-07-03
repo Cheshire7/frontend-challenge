@@ -42,6 +42,35 @@ body{
   min-height: 83px;
 }
 
+.controllPanel form{
+  width: 65%;
+  display: table-cell;
+}
+.radio-toolbar{
+  display: table-cell;
+}
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Arial;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.controllPanel{
+  margin: 10px;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+  background-color: #bbb;
+}
+
 .example-card.mat-card:first-child {
   border-top: $border;
 }
@@ -62,6 +91,7 @@ body{
   overflow: overlay;
   float: left;
   text-align: center;
+  overflow: visible;
 }
 
 .usrImgCont{
@@ -78,10 +108,16 @@ body{
   width: 50px;
   padding: 10px 10px;
   cursor: pointer;
+  outline: none;
 }
 
 .elements .mat-card{
   padding: 24px 24px 24px 10px;
+}
+
+.elements .mat-card.selected{
+  width: 95%;
+  padding-right: 3.1%;
 }
 
 .example-card.mat-card, .user_container{

@@ -29,11 +29,8 @@ export declare class AppComponent implements OnChanges, OnInit {
     ngOnChanges(): void;
     ngOnInit(): void;
     onSelect(user: User): void;
-    hideUser(user: User): void;
     usrEdit(selectedUser: User): void;
     usrDel(selectedUser: any): void;
-    usrAdd(): void;
     onBirth(): void;
     onGender(): void;
-    sortOff(): void;
 }

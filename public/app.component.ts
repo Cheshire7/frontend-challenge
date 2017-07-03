@@ -97,46 +97,33 @@ ngOnInit() {
     });
 }
 
-// user detail
-onSelect(user: User) {
-    this.selectedUser = user;
-    this.detail = true;
-}
+    // user detail
+    onSelect(user: User) {
+        this.selectedUser = user;
+    }
 
-// user hide
-hideUser(user: User) {
-    this.detail = false;
-}
+    // user edit
+    usrEdit(selectedUser: User) {
+        this.selectedUser = selectedUser;
+    }
 
-// user edit
-usrEdit(selectedUser: User) {
-    this.detail = false;
-    this.selectedUser = selectedUser;
-}
+    // user del
+    usrDel(selectedUser){
+        let id = selectedUser.id;
+        let link = '/api/personal/'+id;
+        this.http.delete(link).subscribe((res) => {
+        });
+    }
 
-// user del
-usrDel(selectedUser){
-    let id = selectedUser.id;
-    let link = '/api/personal/'+id;
-    this.http.delete(link).subscribe((res) => {
-    });
-}
+    // birthday sort
+    onBirth(){
+        this.birthSort = "-birthday";
+    }
 
-usrAdd(){
-    this.detail = false;
-}
+    // gender sort
+    onGender(){
+        this.genderSort = "gender";
+    }
 
-// birthday sort
-onBirth(){
-    this.birthSort = "-birthday";
-}
 
-// gender sort
-onGender(){
-    this.genderSort = "gender";
-}
-
-sortOff(){
-    this.DefaultSort = "";
-}
 }
