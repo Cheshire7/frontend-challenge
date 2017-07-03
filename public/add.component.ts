@@ -1,4 +1,4 @@
-import { Input, Output, Inject, EventEmitter, Component } from '@angular/core';
+import { Input, Inject, Component } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Http} from '@angular/http';
 import './styles/styles.scss';
@@ -28,11 +28,6 @@ export class AddComponent {
     add: boolean = true;
 
     constructor(@Inject(Http) private http: Http) { }
-
-    @Output() onChanged = new EventEmitter<boolean>();
-    hideUserAdd(increased) {
-        this.onChanged.emit(increased);
-    }
 
     UserAdd(form: NgForm){
         let link = '/api/personal/';

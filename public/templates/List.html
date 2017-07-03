@@ -3,7 +3,7 @@
 
 <div class="user_container">
     <div class="AddContainer">
-        <a (click)="usrAdd()"><img class="addUsr" src="./../imgs/add.png"/></a>
+        <a (click)="usrAdd()" [routerLink]="['add']"><img class="addUsr" src="./../imgs/add.png"/></a>
     </div>
     <div>
         <form>
@@ -15,7 +15,7 @@
     </div>
     <div class="elements">
         <md-card *ngFor="let user of user_list | birthdayPipe:birthSort | namePipe:nameValue" class="example-card" [class.selected]="user === selectedUser"
-                 (click)="onSelect(user)">
+                 [routerLink]="['detail/', user.id]" [routerLink]="['']">
             <div [ngClass]="(user.percent >= 50)?'gradient':'lowGradient'" [ngStyle]="{height:user.percent + '%'}"></div>
             <div class="usrImgCont">
                 <div class="avatar">
@@ -23,7 +23,6 @@
                     <img *ngIf="!user.photo" class="avatarImage" src="./../imgs/photoPlace.png">
                 </div>
             </div>
-            {{user.gender}}
             <md-card-header>
                 <md-card-title>{{user.name}} {{user.lastName}}</md-card-title>
                 <md-card-subtitle>{{user.birthday}}</md-card-subtitle>
@@ -34,31 +33,8 @@
     </div>
 </div>
 
-<usr-add *ngIf="add" (onChanged)="onChangedAdd($event)"></usr-add>
+<!-- <usr-add *ngIf="add" (onChanged)="onChangedAdd($event)"></usr-add>
 
-<usr-edit [selected]="selectedUser" *ngIf="edit" (onChanged)="onChangedEdit($event)"></usr-edit>
+<usr-edit [selected]="selectedUser" *ngIf="edit" (onChanged)="onChangedEdit($event)"></usr-edit> -->
 <router-outlet></router-outlet>
-<div class="usrContent" *ngIf="detail">
-    <div class="detailHead"><a (click)="hideUser(user)"><img src="./../imgs/close-icon.png" /></a></div>
-    <div class="contentWrap">
-        <div class="avBox">
-            <img *ngIf="selectedUser.photo" class="detailAvatar" src="https://unsplash.it/200?image={{selectedUser.id}}">
-            <img *ngIf="!selectedUser.photo" class="detailAvatar" src="./../imgs/photoPlace.png">
-        </div>
-        <div class="detailContent">
-            <div class="NameBox">
-                <span class="UsrName">{{selectedUser.name}} {{selectedUser.lastName}}</span>
-                <span *ngIf="selectedUser.gender || selectedUser.birthday">(<span *ngIf="selectedUser.gender">{{selectedUser.gender}}</span><span *ngIf="selectedUser.gender && selectedUser.birthday">, </span>{{selectedUser.birthday}})</span>
-            </div>
-            <span class="UsrPos">{{selectedUser.position}}</span>
-            <div class="skillBox">
-                <span class="skills skill" *ngFor="let skill of selectedUser.skill">{{skill}}</span>
-            </div>
-            <span class="UsrPos">{{selectedUser.characteristic}}</span>
-        </div>
-    </div>
-    <div class="ControllButtons">
-        <button md-raised-button (click)="usrEdit(selectedUser)" class="add">Edit user</button>
-        <button md-raised-button (click)="usrDel(selectedUser)" class="del">Delete user</button>
-    </div>
-</div>
+

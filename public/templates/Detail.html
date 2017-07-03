@@ -1,0 +1,26 @@
+<div class="usrContent" *ngIf="user">
+    <div class="detailHead"><a [routerLink]="['']"><img src="./../imgs/close-icon.png" /></a></div>
+    <div class="contentWrap">
+        <div class="avBox">
+            <img *ngIf="user.photo" class="detailAvatar" src="https://unsplash.it/200?image={{user.id}}">
+            <img *ngIf="!user.photo" class="detailAvatar" src="./../imgs/photoPlace.png">
+        </div>
+        <div class="detailContent">
+            <div class="NameBox">
+                <span class="UsrName">{{user.name}} {{user.lastName}}</span>
+                <span *ngIf="user.gender || user.birthday">(<span *ngIf="user.gender">{{user.gender}}</span><span *ngIf="user.gender && user.birthday">, </span>{{user.birthday}})</span>
+            </div>
+            <span class="UsrPos">{{user.position}}</span>
+            <div class="skillBox">
+                <span class="skills skill" *ngFor="let skill of user.skill">{{skill}}</span>
+            </div>
+            <span class="UsrPos">{{user.characteristic}}</span>
+        </div>
+    </div>
+    <div class="ControllButtons">
+        <button md-raised-button (click)="usrEdit(user)" [routerLink]="['/edit', user.id]" class="add">Edit user</button>
+        <button md-raised-button (click)="usrDel(user)" class="del">Delete user</button>
+    </div>
+</div>
+
+

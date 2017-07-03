@@ -1,28 +1,33 @@
-import { EventEmitter } from '@angular/core';
+import { OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 import './styles/styles.scss';
 export declare class User {
     id: number;
     photo: string;
     name: string;
     lastName: string;
-    gender: string;
+    pol: string;
     birthday: string;
     position: string;
     skill: any;
     characteristic: string;
 }
-export declare class EditComponent {
+export declare class EditComponent implements OnChanges, OnInit, OnDestroy {
     private http;
+    private route;
     genders: string[];
     selected: Array<any>;
     user_list: Array<any>;
     condition: boolean;
-    constructor(http: Http);
-    onChanged: EventEmitter<boolean>;
-    hideUserAdd(increased: any): void;
+    id: number;
+    private sub;
+    user: Array<any>;
+    constructor(http: Http, route: ActivatedRoute);
+    ngOnChanges(): void;
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    toggle(): void;
     UserEdit(form: NgForm): void;
-    avatar: boolean;
-    imgSrc: string;
 }

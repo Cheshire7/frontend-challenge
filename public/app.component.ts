@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, OnChanges} from '@angular/core';
 import {Http, Response} from '@angular/http';
+
 import './styles/styles.scss';
 
 export class User {
@@ -19,7 +20,7 @@ export class User {
     templateUrl: './templates/List.html',
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnChanges, OnInit {
 
     selectedUser: User;
     user_list: User;
@@ -36,126 +37,106 @@ export class AppComponent implements OnInit {
 
     constructor(@Inject(Http) private http: Http) { }
 
-    //ngOnInit() {
-    //    this.http.get('/api/personal').map(res => res.json()).subscribe(users => this.user_list = users);
-    //}
 
-    ngOnInit() {
-        this.http.get('/api/personal').subscribe((resp: Response) => {
-            let List = resp.json();
+    ngOnChanges() {
+        console.log("change");
+    }
 
-            for(let index in List){
-                List[index].percent = 0;
+ngOnInit() {
+    this.http.get('/api/personal').subscribe((resp: Response) => {
+        let List = resp.json();
+
+        for(let index in List){
+            List[index].percent = 0;
+        }
+
+        for(let index in List){
+
+            if(List[index].photo != undefined){
+                let sum = List[index].percent + 20;
+                List[index].percent = sum;
             }
 
-            for(let index in List){
-
-                if(List[index].photo != undefined){
-                    let sum = List[index].percent + 20;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].name != undefined){
-                    let sum = List[index].percent + 5;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].lastName != undefined){
-                    let sum = List[index].percent + 5;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].gender != undefined){
-                    let sum = List[index].percent + 5;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].birthday != undefined){
-                    let sum = List[index].percent + 5;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].position != undefined){
-                    let sum = List[index].percent + 10;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].skill){
-                    let multiple = List[index].skill.length * 5;
-                    let sum = List[index].percent + multiple;
-                    List[index].percent = sum;
-                }
-
-                if(List[index].characteristic != undefined){
-                    let sum = List[index].percent + 10;
-                    List[index].percent = sum;
-                }
+            if(List[index].name != undefined){
+                let sum = List[index].percent + 5;
+                List[index].percent = sum;
             }
-            this.user_list = List;
-        });
 
-        //.map(res => res.json()).subscribe(users => this.user_list = users);
-        //console.log(this.user_list);
+            if(List[index].lastName != undefined){
+                let sum = List[index].percent + 5;
+                List[index].percent = sum;
+            }
 
-    }
+            if(List[index].gender != undefined){
+                let sum = List[index].percent + 5;
+                List[index].percent = sum;
+            }
 
-    // user detail
-    onSelect(user: User) {
-        this.selectedUser = user;
-        this.detail = true;
-        this.add = false;
-        this.edit = false;
-    }
+            if(List[index].birthday != undefined){
+                let sum = List[index].percent + 5;
+                List[index].percent = sum;
+            }
 
-    // user edit
-    usrEdit(selectedUser: User) {
-        this.selectedUser = selectedUser;
-        this.detail = false;
-        this.edit = true;
-    }
+            if(List[index].position != undefined){
+                let sum = List[index].percent + 10;
+                List[index].percent = sum;
+            }
 
-    // user hide
-    hideUser(user: User) {
-        this.detail = false;
-    }
+            if(List[index].skill){
+                let multiple = List[index].skill.length * 5;
+                let sum = List[index].percent + multiple;
+                List[index].percent = sum;
+            }
 
-    //user add
-    usrAdd(closeWindow: User){
-        this.edit = false;
-        this.detail = false;
-        this.add = !this.add;
-        //this.selectedUser = closeWindow;
-    }
+            if(List[index].characteristic != undefined){
+                let sum = List[index].percent + 10;
+                List[index].percent = sum;
+            }
+        }
+        this.user_list = List;
+    });
+}
 
-    // Close in add component
-    onChangedAdd(increased){
-        this.add = false;
-    }
+// user detail
+onSelect(user: User) {
+    this.selectedUser = user;
+    this.detail = true;
+}
 
-    // Close in edit component
-    onChangedEdit(increased){
-        this.edit = false;
-    }
+// user hide
+hideUser(user: User) {
+    this.detail = false;
+}
 
-    // user del
-    usrDel(selectedUser){
-        let id = selectedUser.id;
-        let link = '/api/personal/'+id;
-        this.http.delete(link).subscribe((res) => {
-        });
-    }
+// user edit
+usrEdit(selectedUser: User) {
+    this.detail = false;
+    this.selectedUser = selectedUser;
+}
 
-    // birthday sort
-    onBirth(){
-        this.birthSort = "-birthday";
-    }
+// user del
+usrDel(selectedUser){
+    let id = selectedUser.id;
+    let link = '/api/personal/'+id;
+    this.http.delete(link).subscribe((res) => {
+    });
+}
 
-    // gender sort
-    onGender(){
-        this.genderSort = "gender";
-    }
+usrAdd(){
+    this.detail = false;
+}
 
-    sortOff(){
+// birthday sort
+onBirth(){
+    this.birthSort = "-birthday";
+}
+
+// gender sort
+onGender(){
+    this.genderSort = "gender";
+}
+
+sortOff(){
     this.DefaultSort = "";
-    }
+}
 }

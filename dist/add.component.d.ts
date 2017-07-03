@@ -1,4 +1,3 @@
-import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
 import './styles/styles.scss';
@@ -20,8 +19,6 @@ export declare class AddComponent {
     userName: string;
     add: boolean;
     constructor(http: Http);
-    onChanged: EventEmitter<boolean>;
-    hideUserAdd(increased: any): void;
     UserAdd(form: NgForm): void;
     avatar: boolean;
     photoAdd(): void;

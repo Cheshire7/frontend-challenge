@@ -87,6 +87,7 @@ body{
 .example-card.mat-card, .user_container{
   background: #fafafa;
   box-shadow: 5px 0 10px -5px $primary-color;
+  outline: none;
 }
 
 .user_container .mat-card-header .mat-card-title{

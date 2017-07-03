@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, OnChanges } from '@angular/core';
 import { Http } from '@angular/http';
 import './styles/styles.scss';
 export declare class User {
@@ -12,7 +12,7 @@ export declare class User {
     skill: any;
     characteristic: string;
 }
-export declare class AppComponent implements OnInit {
+export declare class AppComponent implements OnChanges, OnInit {
     private http;
     selectedUser: User;
     user_list: User;
@@ -26,14 +26,13 @@ export declare class AppComponent implements OnInit {
     order: string;
     ascending: boolean;
     constructor(http: Http);
+    ngOnChanges(): void;
     ngOnInit(): void;
     onSelect(user: User): void;
-    usrEdit(selectedUser: User): void;
     hideUser(user: User): void;
-    usrAdd(closeWindow: User): void;
-    onChangedAdd(increased: any): void;
-    onChangedEdit(increased: any): void;
+    usrEdit(selectedUser: User): void;
     usrDel(selectedUser: any): void;
+    usrAdd(): void;
     onBirth(): void;
     onGender(): void;
     sortOff(): void;

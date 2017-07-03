@@ -1,33 +1,18 @@
 {
   "personal": [
     {
-      "id": 1,
       "photo": "imgs/avatar-2.png",
-      "name": "Victor",
-      "lastName": "Ivanov",
-      "gender": "Male",
-      "birthday": "1992-03-15",
-      "position": "manager",
-      "skill": [
-        "angular.js",
-        "react",
-        "node.js"
-      ],
-      "characteristic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et sem sagittis, interdum enim a, elementum nisi. Nulla consequat vitae nulla et accumsan. Suspendisse potenti. Proin vitae blandit metus, sed aliquam felis. Donec leo ex, mattis a ligula sed, facilisis pretium erat. Fusce quis dignissim sapien, id porta nisl. Fusce aliquet est et feugiat posuere. Cras eleifend molestie tellus, sed viverra nunc iaculis a."
-    },
-    {
-      "id": 2,
-      "photo": "imgs/avatar-1.png",
       "name": "Marija",
       "lastName": "Petrova",
-      "gender": "Female",
-      "birthday": "1990-05-15",
       "position": "programmist",
       "skill": [
         "react",
         "node.js"
       ],
-      "characteristic": "Ut blandit congue leo, et imperdiet justo laoreet vitae. Pellentesque at sapien eu neque lobortis iaculis. Integer dui sem, tempus quis tempus vel, ullamcorper ut ante. Suspendisse potenti. Ut feugiat sagittis dolor non dapibus. Sed neque nibh, lobortis sit amet porttitor et, ullamcorper id metus. Duis est risus, aliquet et dictum a, gravida auctor ex. Nulla sit amet faucibus diam, non maximus magna. Curabitur ac euismod dolor. Etiam convallis, dolor vitae mollis tempor, est libero ultricies risus, quis pharetra nisi elit at arcu. Sed sed varius lorem. Ut sed vestibulum neque."
+      "gender": "Female",
+      "birthday": "1990-05-15",
+      "characteristic": "Ut blandit congue leo, et imperdiet justo laoreet vitae. Pellentesque at sapien eu neque lobortis iaculis. Integer dui sem, tempus quis tempus vel, ullamcorper ut ante. Suspendisse potenti. Ut feugiat sagittis dolor non dapibus. Sed neque nibh, lobortis sit amet porttitor et, ullamcorper id metus. Duis est risus, aliquet et dictum a, gravida auctor ex. Nulla sit amet faucibus diam, non maximus magna. Curabitur ac euismod dolor. Etiam convallis, dolor vitae mollis tempor, est libero ultricies risus, quis pharetra nisi elit at arcu. Sed sed varius lorem. Ut sed vestibulum neque.",
+      "id": 2
     },
     {
       "id": 3,
@@ -45,7 +30,7 @@
     },
     {
       "photo": "",
-      "name": "Igor2",
+      "name": "Igor",
       "lastName": "Testerov",
       "position": "Pos",
       "skill": [
@@ -59,7 +44,11 @@
     },
     {
       "photo": "",
-      "name": "Test",
+      "name": "Victor",
+      "lastName": "Ivanov",
+      "position": "Programmist",
+      "skill": [],
+      "gender": "Male",
       "id": 6
     }
   ]

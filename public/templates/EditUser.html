@@ -1,49 +1,44 @@
-
-<div class="usrContent">
-
-    <div class="detailHead"><a (click)="hideUserAdd()"><img src="./../imgs/close-icon.png" /></a></div>
+<div class="usrContent" *ngIf="user">
     <div class="contentWrap">
         <form name="form" #myForm="ngForm">
             <div class="pictCase">
-
-                <a class="changeAv" (click)="photoAdds(event)">
+        {{photo}}
+                <a class="changeAv" (click)="toggle()">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
-                        <img *ngIf="!selected.photo" class="addAvatar"  src="./../imgs/photoPlace.png">
-                        <img *ngIf="selected.photo" class="addAvatar" src="https://unsplash.it/200?image={{selected.id}}">
+                        <img *ngIf="!user.photo && !photo" class="addAvatar"  src="./../imgs/photoPlace.png">
+                        <img *ngIf="user.photo || photo" class="addAvatar" src="https://unsplash.it/200?image={{user.id}}">
                     </div>
                 </a>
                 <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">
-                <span>Filled profile: {{selected.percent}}%</span>
+                <span>Filled profile: {{user.percent}}%</span>
             </div>
 
             <div class="mainInfoBarCase">
                 <div class="inpName">
-                    <input type="text" name="name" placeholder="First name" [(ngModel)]="selected.name"/>
-                    <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="selected.lastName"/>
+                    <input type="text" name="name" placeholder="First name" [(ngModel)]="user.name"/>
+                    <input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="user.lastName"/>
                 </div>
 
-                <div class="inpPos"><input type="text" name="position" [(ngModel)]="selected.position" placeholder="Position"/></div>
+                <div class="inpPos"><input type="text" name="position" [(ngModel)]="user.position" placeholder="Position"/></div>
 
                 <div class="inpSkill">
-                    <select name="skill" multiple name="skill" [(ngModel)]="selected.skill">
+                    <select name="skill" multiple name="skill" [(ngModel)]="user.skill">
                         <option [disabled] = true>Select skill</option>
-                        <option *ngFor="let c of selected.skill" [ngValue]="c">{{c}}</option>
-                        <!--<option value="React">React</option>-->
-                        <!--<option value="Node">Node</option>-->
+                        <option *ngFor="let c of user.skill" [ngValue]="c">{{c}}</option>
                     </select>
                 </div>
 
                 <div class="MultiInp">
 
-                     <select name="gender" [ngModel]="selected.gender">
+                     <select name="gender" [ngModel]="user.gender">
                         <option [disabled]>Select Gender</option>
-                        <option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender === selected.gender">{{gender}}</option>
+                        <option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender === user.gender">{{gender}}</option>
                      </select>
 
-                    <input name="birthday" type="date" [(ngModel)]="selected.birthday" />
+                    <input name="birthday" type="date" [(ngModel)]="user.birthday" />
                 </div>
 
-                <textarea [(ngModel)]="selected.characteristic" class="inpText" rows="10" cols="45" name="characteristic"></textarea>
+                <textarea [(ngModel)]="user.characteristic" class="inpText" rows="10" cols="45" name="characteristic"></textarea>
             </div>
 
             <div class="ControllButtons">
@@ -52,7 +47,4 @@
 
         </form>
     </div>
-
 </div>
-
-
