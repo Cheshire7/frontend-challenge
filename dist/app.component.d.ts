@@ -1,19 +1,9 @@
-import { OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { OnInit, OnChanges, DoCheck } from '@angular/core';
+import { UserService } from './data.service';
+import { User } from './user';
 import './styles/styles.scss';
-export declare class User {
-    id: number;
-    photo: string;
-    name: string;
-    lastName: string;
-    pol: string;
-    birthday: string;
-    position: string;
-    skill: any;
-    characteristic: string;
-}
-export declare class AppComponent implements OnInit {
-    private http;
+export declare class AppComponent implements OnInit, OnChanges, DoCheck {
+    private userService;
     selectedUser: User;
     user_list: User;
     birthSort: string;
@@ -21,10 +11,12 @@ export declare class AppComponent implements OnInit {
     type: boolean;
     order: string;
     ascending: boolean;
-    constructor(http: Http);
+    constructor(userService: UserService);
+    ngOnChanges(): void;
     ngOnInit(): void;
+    ngDoCheck(): void;
+    getChange(): void;
     onSelect(user: User): void;
-    usrEdit(selectedUser: User): void;
     usrDel(selectedUser: any): void;
     onBirth(): void;
     onGender(): void;

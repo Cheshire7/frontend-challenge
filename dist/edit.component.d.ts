@@ -1,22 +1,22 @@
-import { OnInit, OnDestroy, OnChanges } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from './data.service';
 import './styles/styles.scss';
 export declare class User {
     id: number;
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
     characteristic: string;
 }
-export declare class EditComponent implements OnChanges, OnInit, OnDestroy {
-    private http;
+export declare class EditComponent implements OnInit, OnDestroy {
     private route;
+    private userService;
     genders: string[];
     selected: Array<any>;
     user_list: Array<any>;
@@ -24,8 +24,8 @@ export declare class EditComponent implements OnChanges, OnInit, OnDestroy {
     id: number;
     private sub;
     user: Array<any>;
-    constructor(http: Http, route: ActivatedRoute);
-    ngOnChanges(): void;
+    isAvailable: boolean;
+    constructor(route: ActivatedRoute, userService: UserService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     toggle(): void;

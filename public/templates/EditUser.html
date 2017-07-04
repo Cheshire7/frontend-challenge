@@ -2,15 +2,17 @@
     <div class="contentWrap">
         <form name="form" #myForm="ngForm">
             <div class="pictCase">
-        {{photo}}
                 <a class="changeAv" (click)="toggle()">
                     <div class="avBox" onclick="document.getElementById('selectAv').click ()">
                         <img *ngIf="!user.photo && !photo" class="addAvatar"  src="./../imgs/photoPlace.png">
                         <img *ngIf="user.photo || photo" class="addAvatar" src="https://unsplash.it/200?image={{user.id}}">
                     </div>
                 </a>
-                <input class="hidden" id="selectAv" type="checkbox" name="photo" [(ngModel)]="photo" value="imgs/avatar-2.png">
+                {{user.photo}}
+                <input [(ngModel)]="user.photo" [checked]="user.photo" class="hidden" id="selectAv" type="checkbox" name="photo">
+
                 <span>Filled profile: {{user.percent}}%</span>
+
             </div>
 
             <div class="mainInfoBarCase">
@@ -30,10 +32,32 @@
 
                 <div class="MultiInp">
 
-                     <select name="gender" [ngModel]="user.gender">
-                        <option [disabled]>Select Gender</option>
-                        <option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender === user.gender">{{gender}}</option>
-                     </select>
+                    <label class="selectGeneral" placeholder="Select Gender">
+                        <input type="radio" name="gender">
+
+                        <div>
+                            <input  [ngModel]="user.gender"
+                                    type="radio"
+                                    name="gender"
+                                    value="Male"
+                                    id="Male"
+                                    >
+                            <label for="Male">Male</label>
+
+                            <input  [ngModel]="user.gender"
+                                    type="radio"
+                                    name="gender"
+                                    value="Female"
+                                    id="Female"
+                                    >
+                            <label for="Female">Female</label>
+                        </div>
+                    </label>
+
+                     <!--<select name="gender" [ngModel]="user.gender">-->
+                        <!--<option [disabled]>Select Gender</option>-->
+                        <!--<option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender === user.gender">{{gender}}</option>-->
+                     <!--</select>-->
 
                     <input name="birthday" type="date" [(ngModel)]="user.birthday" />
                 </div>

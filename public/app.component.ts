@@ -1,26 +1,17 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Component, OnInit, Inject, OnChanges, DoCheck } from '@angular/core';
+import { Response } from '@angular/http';
+import { UserService } from './data.service';
+import { User } from './user';
 
 import './styles/styles.scss';
-
-export class User {
-    id: number;
-    photo: string;
-    name: string;
-    lastName: string;
-    pol: string;
-    birthday: string;
-    position: string;
-    skill: any;
-    characteristic: string;
-}
 
 @Component({
     selector: 'my-app',
     templateUrl: './templates/List.html',
+    providers: [UserService]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges, DoCheck{
 
     selectedUser: User;
     user_list: User;
@@ -31,11 +22,74 @@ export class AppComponent implements OnInit {
     order = "age";
     ascending = true;
 
-    constructor(@Inject(Http) private http: Http) { }
+    constructor(@Inject(UserService) private userService: UserService) { }
 
+ngOnChanges(){
+    console.log('change');
+}
 
-ngOnInit() {
-    this.http.get('/api/personal').subscribe((resp: Response) => {
+    ngOnInit(){
+        this.userService.getUsers().subscribe((resp: Response) => {
+            let List = resp.json();
+
+            for(let index in List){
+                List[index].percent = 0;
+            }
+
+            for(let index in List){
+
+                if(List[index].photo != undefined){
+                    let sum = List[index].percent + 20;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].name != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].lastName != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].gender != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].birthday != undefined){
+                    let sum = List[index].percent + 5;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].position != undefined){
+                    let sum = List[index].percent + 10;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].skill){
+                    let multiple = List[index].skill.length * 5;
+                    let sum = List[index].percent + multiple;
+                    List[index].percent = sum;
+                }
+
+                if(List[index].characteristic != undefined){
+                    let sum = List[index].percent + 10;
+                    List[index].percent = sum;
+                }
+            }
+            this.user_list = List;
+        });
+
+    }
+
+ngDoCheck(){
+    console.log("change");
+}
+
+getChange(){
+    this.userService.getUsers().subscribe((resp: Response) => {
         let List = resp.json();
 
         for(let index in List){
@@ -93,18 +147,9 @@ ngOnInit() {
     onSelect(user: User) {
         this.selectedUser = user;
     }
-
-    // user edit
-    usrEdit(selectedUser: User) {
-        this.selectedUser = selectedUser;
-    }
-
-    // user del
+    // user delete
     usrDel(selectedUser){
-        let id = selectedUser.id;
-        let link = '/api/personal/'+id;
-        this.http.delete(link).subscribe((res) => {
-        });
+        this.userService.dellUser(selectedUser);
     }
 
     // birthday sort

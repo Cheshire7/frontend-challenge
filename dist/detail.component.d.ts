@@ -7,7 +7,7 @@ export declare class User {
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
@@ -17,7 +17,6 @@ export declare class DetailComponent implements OnInit, OnDestroy {
     private http;
     private route;
     selectedUser: User;
-    user_list: User;
     nameValue: string;
     add: boolean;
     edit: boolean;

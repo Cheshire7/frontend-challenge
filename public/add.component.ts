@@ -1,23 +1,13 @@
-import { Input, Inject, Component } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {Http} from '@angular/http';
+import { Component, Input, Inject } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from './data.service';
 import './styles/styles.scss';
 
-export class User {
-    id: number;
-    photo: string;
-    name: string;
-    lastName: string;
-    gender: string;
-    birthday: string;
-    position: string;
-    skill: any;
-    characteristic: string;
-}
 
 @Component({
     selector: 'usr-add',
     templateUrl: './templates/AddUser.html',
+    providers: [UserService]
 })
 
 export class AddComponent {
@@ -27,19 +17,21 @@ export class AddComponent {
     @Input() userName: string;
     add: boolean = true;
 
-    constructor(@Inject(Http) private http: Http) { }
+    constructor(@Inject(UserService) private userService: UserService) { }
 
     UserAdd(form: NgForm){
-        let link = '/api/personal/';
+        //let link = '/api/personal/';
         let data = form.value;
+
         if(data.photo == true){
             data.photo = "imgs/avatar-2.png";
         }else{
             data.photo = "";
         }
-        this.http.post(link, data).subscribe((res) => {
-        });
+
+        this.userService.addUser(data);
     }
+
 
     avatar: boolean = true;
 

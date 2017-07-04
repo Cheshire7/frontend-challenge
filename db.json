@@ -1,7 +1,7 @@
 {
   "personal": [
     {
-      "photo": "imgs/avatar-2.png",
+      "photo": true,
       "name": "Marija",
       "lastName": "Petrova",
       "position": "programmist",
@@ -15,22 +15,22 @@
       "id": 2
     },
     {
-      "id": 3,
+      "photo": true,
       "name": "Dmitrij",
-      "photo": "imgs/avatar-3.png",
       "lastName": "Sidorov",
-      "gender": "Male",
-      "birthday": "1989-07-18",
       "position": "",
       "skill": [
         "react",
         "node.js"
       ],
-      "characteristic": ""
+      "gender": "Male",
+      "birthday": "1989-07-18",
+      "characteristic": "",
+      "id": 3
     },
     {
-      "photo": "",
-      "name": "Igor",
+      "photo": false,
+      "name": "Igor111",
       "lastName": "Testerov",
       "position": "Pos",
       "skill": [

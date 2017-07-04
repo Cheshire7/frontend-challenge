@@ -1,7 +1,8 @@
-import { Input, OnInit, OnDestroy, Inject, Component, OnChanges} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {Http, Response} from '@angular/http';
+import { Input, OnInit, OnDestroy, Inject, Component} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from './data.service';
 import './styles/styles.scss';
 
 export class User {
@@ -9,7 +10,7 @@ export class User {
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
@@ -19,9 +20,10 @@ export class User {
 @Component({
     selector: 'usr-edit',
     templateUrl: './templates/EditUser.html',
+    providers: [UserService]
 })
 
-export class EditComponent implements OnChanges, OnInit, OnDestroy {
+export class EditComponent implements OnInit, OnDestroy {
 
     genders = ['Male', 'Female'];
     @Input() selected: Array<any>;
@@ -30,13 +32,12 @@ export class EditComponent implements OnChanges, OnInit, OnDestroy {
     id: number;
     private sub: any;
     user: Array<any>;
+    isAvailable = true;
 
 
-    constructor(@Inject(Http) private http: Http, @Inject(ActivatedRoute) private route: ActivatedRoute) { }
+    constructor(@Inject(ActivatedRoute) private route: ActivatedRoute,
+        @Inject(UserService) private userService: UserService) { }
 
-    ngOnChanges() {
-        console.log("change");
-    }
     ngOnInit() {
 
         this.sub = this.route.params.subscribe(params => {
@@ -44,12 +45,8 @@ export class EditComponent implements OnChanges, OnInit, OnDestroy {
             // In a real app: dispatch action to load the details here.
         });
 
-        this.http.get('/api/personal/'+this.id).subscribe((resp: Response) => {
+        this.userService.getUser(this.id).subscribe((resp: Response) => {
             let List = resp.json();
-
-            //for(let index in List){
-            //    List.percent = 0;
-            //}
 
             List.percent = 0;
 
@@ -105,22 +102,18 @@ export class EditComponent implements OnChanges, OnInit, OnDestroy {
 
     toggle(){
     this.condition=!this.condition;
-
     }
 
     UserEdit(form: NgForm){
 
-        let id = this.user["id"];
-        let link = '/api/personal/'+id;
         let data = form.value;
         console.log(data);
         if(data.photo == true){
-            data.photo = "imgs/avatar-2.png";
+            data.photo = true;
         }else{
-            data.photo = "";
+            data.photo = false;
         }
-        this.http.put(link, data).subscribe((res) => {
-        });
-    }
 
+        this.userService.editUser(data, this.id);
+    }
 }

@@ -8,7 +8,7 @@ export class User {
     photo: string;
     name: string;
     lastName: string;
-    pol: string;
+    gender: string;
     birthday: string;
     position: string;
     skill: any;
@@ -23,7 +23,6 @@ export class User {
 export class DetailComponent implements OnInit, OnDestroy {
     @Input()
     selectedUser: User;
-    user_list: User;
     nameValue: string;
     add: boolean = false;
     edit: boolean = false;
