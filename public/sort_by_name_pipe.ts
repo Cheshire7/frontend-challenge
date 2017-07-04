@@ -13,7 +13,7 @@ export class namePipe {
             return value.filter(user => {
                 for (let key in user) {
                     if ((typeof user[key] === 'string' || user[key] instanceof String)
-                        && (user[key].indexOf(args) !== -1)) {
+                        && (user[key].toLowerCase().indexOf(args.toLowerCase()) !== -1)) {
                         return true;
                     }
                 }

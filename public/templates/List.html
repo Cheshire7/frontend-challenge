@@ -11,15 +11,20 @@
         </form>
 
         <div class="radio-toolbar">
-            <input (click)="onBirth()" type="radio" id="radio1" name="radios" value="all">
-            <label for="radio1">Birthday</label>
+        <div class="skipping">
+            <input (click)="skipSort()" type="radio" id="radio1" name="radios" value="Skip">
+            <label for="radio1">Skip</label>
+        </div>
 
-            <input (click)="onGender()" type="radio" id="radio2" name="radios" value="false">
-            <label for="radio2">Gender</label>
+            <input (click)="onBirth()" type="radio" id="radio2" name="radios" value="Birthday">
+            <label for="radio2">Birthday</label>
+
+            <input (click)="onGender()" type="radio" id="radio3" name="radios" value="Gender">
+            <label for="radio3">Gender</label>
         </div>
     </div>
     <div class="elements">
-        <md-card *ngFor="let user of user_list | birthdayPipe:birthSort | namePipe:nameValue" class="example-card" [class.selected]="user === selectedUser"
+        <md-card *ngFor="let user of user_list | orderBy : genderSort: type | birthdayPipe: birthSort | namePipe:nameValue" class="example-card" [class.selected]="user === selectedUser"
                  [routerLink]="['detail/', user.id]" (click)="onSelect(user)">
             <div [ngClass]="(user.percent >= 50)?'gradient':'lowGradient'" [ngStyle]="{height:user.percent + '%'}"></div>
             <div class="usrImgCont">
@@ -38,8 +43,5 @@
     </div>
 </div>
 
-<!-- <usr-add *ngIf="add" (onChanged)="onChangedAdd($event)"></usr-add>
-
-<usr-edit [selected]="selectedUser" *ngIf="edit" (onChanged)="onChangedEdit($event)"></usr-edit> -->
 <router-outlet></router-outlet>
 

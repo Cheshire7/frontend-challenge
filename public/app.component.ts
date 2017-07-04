@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, OnChanges} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 import './styles/styles.scss';
 
@@ -20,27 +20,19 @@ export class User {
     templateUrl: './templates/List.html',
 })
 
-export class AppComponent implements OnChanges, OnInit {
+export class AppComponent implements OnInit {
 
     selectedUser: User;
     user_list: User;
-    nameValue: string;
-    add: boolean = false;
-    edit: boolean = false;
-    detail: boolean = false;
     birthSort: string;
     genderSort: string;
-    DefaultSort: string;
+    type: boolean = true;
 
     order = "age";
     ascending = true;
 
     constructor(@Inject(Http) private http: Http) { }
 
-
-    ngOnChanges() {
-        console.log("change");
-    }
 
 ngOnInit() {
     this.http.get('/api/personal').subscribe((resp: Response) => {
@@ -118,12 +110,21 @@ ngOnInit() {
     // birthday sort
     onBirth(){
         this.birthSort = "-birthday";
+
     }
 
     // gender sort
     onGender(){
         this.genderSort = "gender";
+        this.type = true;
+
     }
 
+    // skip sort
+    skipSort(){
+        this.genderSort = "id";
+        this.birthSort = "id";
+        this.type = false;
+    }
 
 }
