@@ -3,11 +3,9 @@ import { NgForm } from '@angular/forms';
 import { UserService } from './_services/data.service';
 import './styles/styles.scss';
 
-
 @Component({
     selector: 'usr-add',
     templateUrl: './templates/AddUser.html',
-    providers: [UserService]
 })
 
 export class AddComponent {
@@ -30,6 +28,9 @@ export class AddComponent {
         }
 
         this.userService.addUser(data);
+
+        // send message about change via observable subject
+        this.userService.sendMessage();
     }
 
 

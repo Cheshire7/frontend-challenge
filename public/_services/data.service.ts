@@ -3,18 +3,15 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 
-//import { User } from './user';
-
 @Injectable()
 export class UserService{
 
     constructor (@Inject(Http) private http: Http) {}
 
     private userUrl = 'api/personal/';
-    public user_list: any;
 
     getUsers(){
-        return this.user_list = this.http.get(this.userUrl);
+        return this.http.get(this.userUrl);
     }
 
     getUser(userId: number){
@@ -41,13 +38,7 @@ export class UserService{
 
     public subject = new Subject<any>();
 
-    sendMessage(message: string) {
-        console.log('MSG', this.subject);
-        this.subject.next({ text: message });
-
-    }
-
-    clearMessage() {
+    sendMessage() {
         this.subject.next();
     }
 

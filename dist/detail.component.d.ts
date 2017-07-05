@@ -1,20 +1,10 @@
 import { OnInit, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from './_services/data.service';
 import './styles/styles.scss';
-export declare class User {
-    id: number;
-    photo: string;
-    name: string;
-    lastName: string;
-    gender: string;
-    birthday: string;
-    position: string;
-    skill: any;
-    characteristic: string;
-}
+import { User } from './user';
 export declare class DetailComponent implements OnInit, OnDestroy {
-    private http;
+    private userService;
     private route;
     selectedUser: User;
     nameValue: string;
@@ -29,15 +19,10 @@ export declare class DetailComponent implements OnInit, OnDestroy {
     id: number;
     private sub;
     user: Array<any>;
-    constructor(http: Http, route: ActivatedRoute);
+    constructor(userService: UserService, route: ActivatedRoute);
+    getUser: () => void;
     ngOnInit(): void;
     ngOnDestroy(): void;
-    onSelect(user: User): void;
-    hideUser(user: User): void;
     usrEdit(selectedUser: User): void;
     usrDel(selectedUser: any): void;
-    usrAdd(): void;
-    onBirth(): void;
-    onGender(): void;
-    sortOff(): void;
 }

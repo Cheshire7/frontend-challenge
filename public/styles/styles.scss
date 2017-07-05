@@ -218,13 +218,15 @@ md-toolbar{
   .del{
     @include buttons;
     background-color: #da5464;
-
+    border-bottom: 2px solid #7d2b35;
+    box-shadow: 0 5px 10px -5px #888888;
   }
 
   .add{
     @include buttons;
     background-color: #51be87;
-
+    border-bottom: 2px solid #3b7d5c;
+    box-shadow: 0 5px 10px -5px #888888;
   }
 }
 
@@ -313,10 +315,12 @@ md-toolbar{
   background: #AAA;
   cursor: pointer;
 }
-
-.GenderSel, .inpSkill, .MultiInp, .MultiInp input{
-  margin: 15px;
+.GenderSel, .inpSkill, .MultiInp, .MultiInp{
+  input, .selectGeneral{
+    margin: 15px;
+  }
 }
+
 
 .addAvatar{
   width: 138px;
@@ -409,11 +413,10 @@ label.selectGeneral
   font-size: 18px;
   font-weight: normal;
   margin: 2px 0;
-  border-radius: 0;
+  border-radius: 6px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #f3ad48;
-  border-radius: 6px;
 }
 
 label.selectGeneral:before
@@ -520,7 +523,25 @@ label.selectGeneral input[type="radio"]:not(:checked) ~ div > input[type="radio"
   position: relative;
   z-index: -1;
 }
-.selectGeneral div{}
+
+.birthPicker{
+  background: #f3ad48;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  margin: 0;
+  border-bottom: 2px solid #a58d68;
+  box-shadow: 0 5px 10px -5px #888888;
+  color: white;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.birthPicker::-webkit-calendar-picker-indicator { background: #f3ad48; }
+
+
+
+
 
 
 

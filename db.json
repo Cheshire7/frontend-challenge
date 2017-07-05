@@ -30,25 +30,12 @@
     },
     {
       "photo": false,
-      "name": "Igor",
-      "lastName": "Testerov",
-      "position": "Pos",
-      "skill": [
-        "React",
-        "Node"
-      ],
-      "gender": "Male",
-      "birthday": "2017-06-15",
-      "characteristic": "description",
-      "id": 5
-    },
-    {
-      "photo": "",
       "name": "Victor",
       "lastName": "Ivanov",
       "position": "Programmist",
       "skill": [],
       "gender": "Male",
+      "birthday": "1998-06-05",
       "id": 6
     }
   ]

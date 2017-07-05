@@ -20,8 +20,7 @@ export class User {
 
 @Component({
     selector: 'usr-edit',
-    templateUrl: './templates/EditUser.html',
-    providers: [UserService]
+    templateUrl: './templates/EditUser.html'
 })
 
 export class EditComponent implements OnInit, OnDestroy {
@@ -34,7 +33,6 @@ export class EditComponent implements OnInit, OnDestroy {
     private sub: any;
     user: Array<any>;
     isAvailable = true;
-
     message: any;
     subscription: Subscription;
 
@@ -100,12 +98,6 @@ export class EditComponent implements OnInit, OnDestroy {
         });
     }
 
-    onClick(): void {
-        console.log('CLICK');
-        // send message to subscribers via observable subject
-        this.userService.sendMessage('Message from Home Component to App Component!');
-    }
-
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
@@ -114,10 +106,9 @@ export class EditComponent implements OnInit, OnDestroy {
     this.condition=!this.condition;
     }
 
-    UserEdit(form: NgForm){
+    UserEdit(form: NgForm): void{
 
         let data = form.value;
-        console.log(data);
         if(data.photo == true){
             data.photo = true;
         }else{
@@ -125,5 +116,8 @@ export class EditComponent implements OnInit, OnDestroy {
         }
 
         this.userService.editUser(data, this.id);
+
+        // send message about change via observable subject
+        this.userService.sendMessage();
     }
 }

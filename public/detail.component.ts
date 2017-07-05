@@ -1,19 +1,9 @@
-import { OnInit, OnDestroy, Inject, Component, Input} from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { OnInit, OnDestroy, Inject, Component} from '@angular/core';
+import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from './_services/data.service';
 import './styles/styles.scss';
-
-export class User {
-    id: number;
-    photo: string;
-    name: string;
-    lastName: string;
-    gender: string;
-    birthday: string;
-    position: string;
-    skill: any;
-    characteristic: string;
-}
+import { User } from './user';
 
 @Component({
     selector: 'my-app',
@@ -21,7 +11,6 @@ export class User {
 })
 
 export class DetailComponent implements OnInit, OnDestroy {
-    @Input()
     selectedUser: User;
     nameValue: string;
     add: boolean = false;
@@ -36,159 +25,83 @@ export class DetailComponent implements OnInit, OnDestroy {
     private sub: any;
     user: Array<any>;
 
-    constructor(@Inject(Http) private http: Http, @Inject(ActivatedRoute) private route: ActivatedRoute) {
-        this.sub = this.route.params.subscribe(params => {
-        this.id = +params['id']; // (+) converts string 'id' to a number
-        // In a real app: dispatch action to load the details here.
+    constructor(@Inject(UserService) private userService: UserService, @Inject(ActivatedRoute) private route: ActivatedRoute) {
 
-    this.http.get('/api/personal/'+this.id).subscribe((resp: Response) => {
-        let UList = resp.json();
-
-        UList.percent = 0;
-
-        if(UList.photo != undefined){
-            let sum = UList.percent + 20;
-            UList.percent = sum;
-        }
-
-        if(UList.name != undefined){
-            let sum = UList.percent + 5;
-            UList.percent = sum;
-        }
-
-        if(UList.lastName != undefined){
-            let sum = UList.percent + 5;
-            UList.percent = sum;
-        }
-
-        if(UList.gender != undefined){
-            let sum = UList.percent + 5;
-            UList.percent = sum;
-        }
-
-        if(UList.birthday != undefined){
-            let sum = UList.percent + 5;
-            UList.percent = sum;
-        }
-
-        if(UList.position != undefined){
-            let sum = UList.percent + 10;
-            UList.percent = sum;
-        }
-
-        if(UList.skill){
-            let multiple = UList.skill.length * 5;
-            let sum = UList.percent + multiple;
-            UList.percent = sum;
-        }
-
-        if(UList.characteristic != undefined){
-            let sum = UList.percent + 10;
-            UList.percent = sum;
-        }
-
-        this.user = UList;
-    });
+    this.sub = this.route.params.subscribe(params => {
+    this.id = +params['id'];
+    this.getUser();
 });
+
+}
+
+getUser = function() {
+    this.userService.getUser(this.id).subscribe((resp: Response) => {
+        let List = resp.json();
+
+        List.percent = 0;
+
+        if(List.photo != undefined){
+            let sum = List.percent + 20;
+            List.percent = sum;
+        }
+
+        if(List.name != undefined){
+            let sum = List.percent + 5;
+            List.percent = sum;
+        }
+
+        if(List.lastName != undefined){
+            let sum = List.percent + 5;
+            List.percent = sum;
+        }
+
+        if(List.gender != undefined){
+            let sum = List.percent + 5;
+            List.percent = sum;
+        }
+
+        if(List.birthday != undefined){
+            let sum = List.percent + 5;
+            List.percent = sum;
+        }
+
+        if(List.position != undefined){
+            let sum = List.percent + 10;
+            List.percent = sum;
+        }
+
+        if(List.skill){
+            let multiple = List.skill.length * 5;
+            let sum = List.percent + multiple;
+            List.percent = sum;
+        }
+
+        if(List.characteristic != undefined){
+            let sum = List.percent + 10;
+            List.percent = sum;
+        }
+
+        this.user = List;
+
+    });
+}
+
+    ngOnInit() {
+        //this.getUser();
     }
 
-ngOnInit() {
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
 
-        this.http.get('/api/personal/'+this.id).subscribe((resp: Response) => {
-            let UList = resp.json();
+    // user edit
+    usrEdit(selectedUser: User) {
+        this.selectedUser = selectedUser;
+    }
 
-            UList.percent = 0;
-
-            if(UList.photo != undefined){
-                let sum = UList.percent + 20;
-                UList.percent = sum;
-            }
-
-            if(UList.name != undefined){
-                let sum = UList.percent + 5;
-                UList.percent = sum;
-            }
-
-            if(UList.lastName != undefined){
-                let sum = UList.percent + 5;
-                UList.percent = sum;
-            }
-
-            if(UList.gender != undefined){
-                let sum = UList.percent + 5;
-                UList.percent = sum;
-            }
-
-            if(UList.birthday != undefined){
-                let sum = UList.percent + 5;
-                UList.percent = sum;
-            }
-
-            if(UList.position != undefined){
-                let sum = UList.percent + 10;
-                UList.percent = sum;
-            }
-
-            if(UList.skill){
-                let multiple = UList.skill.length * 5;
-                let sum = UList.percent + multiple;
-                UList.percent = sum;
-            }
-
-            if(UList.characteristic != undefined){
-                let sum = UList.percent + 10;
-                UList.percent = sum;
-            }
-
-            this.user = UList;
-        });
-}
-
-ngOnDestroy() {
-    this.sub.unsubscribe();
-}
-
-// user detail
-onSelect(user: User) {
-    this.selectedUser = user;
-    this.detail = true;
-}
-
-// user hide
-hideUser(user: User) {
-    this.detail = false;
-}
-
-// user edit
-usrEdit(selectedUser: User) {
-    this.detail = false;
-    this.selectedUser = selectedUser;
-}
-
-// user del
-usrDel(selectedUser){
-    console.log(this.user['id']);
-    let id = this.user['id'];
-    let link = '/api/personal/'+id;
-    this.http.delete(link).subscribe((res) => {
-    });
-}
-
-usrAdd(){
-    this.detail = false;
-}
-
-// birthday sort
-onBirth(){
-    this.birthSort = "-birthday";
-}
-
-// gender sort
-onGender(){
-    this.genderSort = "gender";
-}
-
-sortOff(){
-    this.DefaultSort = "";
-}
+    // user delete
+    usrDel(selectedUser){
+        this.userService.dellUser(selectedUser);
+        this.userService.sendMessage();
+    }
 }

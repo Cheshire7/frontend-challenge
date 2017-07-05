@@ -30,7 +30,6 @@ export declare class EditComponent implements OnInit, OnDestroy {
     subscription: Subscription;
     constructor(route: ActivatedRoute, userService: UserService);
     ngOnInit(): void;
-    onClick(): void;
     ngOnDestroy(): void;
     toggle(): void;
     UserEdit(form: NgForm): void;

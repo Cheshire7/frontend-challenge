@@ -1,4 +1,5 @@
 <div class="usrContent" *ngIf="user">
+    <div class="detailHead"><a [routerLink]="['']"><img src="./../imgs/close-icon.png" /></a></div>
     <div class="contentWrap">
         <form name="form" #myForm="ngForm">
             <div class="pictCase">
@@ -8,11 +9,9 @@
                         <img *ngIf="user.photo || photo" class="addAvatar" src="https://unsplash.it/200?image={{user.id}}">
                     </div>
                 </a>
-                {{user.photo}}
                 <input [(ngModel)]="user.photo" [checked]="user.photo" class="hidden" id="selectAv" type="checkbox" name="photo">
 
                 <span>Filled profile: {{user.percent}}%</span>
-
             </div>
 
             <div class="mainInfoBarCase">
@@ -54,12 +53,14 @@
                         </div>
                     </label>
 
+                        
+
                      <!--<select name="gender" [ngModel]="user.gender">-->
                         <!--<option [disabled]>Select Gender</option>-->
                         <!--<option *ngFor="let gender of genders" [ngValue]="gender" [selected]="gender === user.gender">{{gender}}</option>-->
                      <!--</select>-->
 
-                    <input name="birthday" type="date" [(ngModel)]="user.birthday" />
+                    <input class="birthPicker" name="birthday" type="date" [(ngModel)]="user.birthday" />
                 </div>
 
                 <textarea [(ngModel)]="user.characteristic" class="inpText" rows="10" cols="45" name="characteristic"></textarea>
@@ -68,8 +69,6 @@
             <div class="ControllButtons">
                 <button md-raised-button (click)="UserEdit(myForm)" class="add">Save</button>
             </div>
-
         </form>
-        <button  (click)="onClick()">Send</button>
     </div>
 </div>

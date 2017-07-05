@@ -31,6 +31,10 @@ module.exports = {
           options: { configFileName: path.resolve('tsconfig.json') }
         } , 'angular2-template-loader']
       },
+	  {
+		  test: /\.exec\.js$/,
+		  use: [ 'script-loader' ]
+	  },
       {
         test: /\.html$/,
         loader: 'html-loader'
@@ -90,9 +94,9 @@ module.exports = {
 	    new OpenBrowserPlugin({ url: 'http://localhost:8090' }),
 
 		new webpack.ProvidePlugin({
-			"$":"jquery",
-			"jQuery":"jquery",
-			"window.jQuery":"jquery"
+			"$":"jquery/dist/jquery.min.js",
+			"jQuery":"jquery/dist/jquery.min.js",
+			"window.jQuery":"jquery/dist/jquery.min.js"
 		}),
 
 	],
