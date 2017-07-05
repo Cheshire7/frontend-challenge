@@ -2,7 +2,8 @@ import { Input, OnInit, OnDestroy, Inject, Component} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from './data.service';
+import { UserService } from './_services/data.service';
+import { Subscription } from 'rxjs/Subscription';
 import './styles/styles.scss';
 
 export class User {
@@ -33,6 +34,9 @@ export class EditComponent implements OnInit, OnDestroy {
     private sub: any;
     user: Array<any>;
     isAvailable = true;
+
+    message: any;
+    subscription: Subscription;
 
 
     constructor(@Inject(ActivatedRoute) private route: ActivatedRoute,
@@ -94,6 +98,12 @@ export class EditComponent implements OnInit, OnDestroy {
             this.user = List;
 
         });
+    }
+
+    onClick(): void {
+        console.log('CLICK');
+        // send message to subscribers via observable subject
+        this.userService.sendMessage('Message from Home Component to App Component!');
     }
 
     ngOnDestroy() {

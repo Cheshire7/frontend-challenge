@@ -1,6 +1,6 @@
 import { Component, Input, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from './data.service';
+import { UserService } from './_services/data.service';
 import './styles/styles.scss';
 
 

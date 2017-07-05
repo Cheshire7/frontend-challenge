@@ -12,6 +12,7 @@ import {DetailComponent} from './detail.component';
 import {namePipe} from './sort_by_name_pipe';
 import {birthdayPipe} from './sort_by_birthday_pipe';
 import {OrderByPipe} from './sort_by_gender_pipe';
+import {UserService} from './_services/data.service';
 
 import 'hammerjs';
 
@@ -24,8 +25,7 @@ export const routeConfig:Routes = [
 @NgModule({
     imports:[BrowserModule, FormsModule, MaterialModule, HttpModule, BrowserAnimationsModule, RouterModule.forRoot(routeConfig)],
     declarations: [AppComponent, AddComponent, EditComponent, DetailComponent, namePipe, birthdayPipe, OrderByPipe],
-    bootstrap: [
-        AppComponent
-    ]
+    providers: [UserService],
+    bootstrap: [AppComponent]
 })
 export class AppModule{}

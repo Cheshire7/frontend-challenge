@@ -1,7 +1,8 @@
 import { OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from './data.service';
+import { UserService } from './_services/data.service';
+import { Subscription } from 'rxjs/Subscription';
 import './styles/styles.scss';
 export declare class User {
     id: number;
@@ -25,8 +26,11 @@ export declare class EditComponent implements OnInit, OnDestroy {
     private sub;
     user: Array<any>;
     isAvailable: boolean;
+    message: any;
+    subscription: Subscription;
     constructor(route: ActivatedRoute, userService: UserService);
     ngOnInit(): void;
+    onClick(): void;
     ngOnDestroy(): void;
     toggle(): void;
     UserEdit(form: NgForm): void;

@@ -9,7 +9,8 @@
         <form>
             <input placeholder="Поиск" type="search" (input)="nameValue = $event.target.value">
         </form>
-        <button (click)="getChange()">change</button>
+        <div *ngIf="message" class="alert alert-success">{{message.text}}</div>
+        <!--<button (click)="getChange()">change</button>-->
 
         <div class="radio-toolbar">
         <div class="skipping">
